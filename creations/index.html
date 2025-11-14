@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Zeug und Kram - Creations</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Fixed Header -->
+<header id="main-header">
+    <div class="header-content">
+        <div class="header-left">
+            <a href="#" class="logo-link">
+                <img src="../images/ZeugUndKramFlach.png" alt="Zeug und Kram" class="logo-image" href="/gifmaker">
+            </a>
+        </div>
+        <nav class="header-right">
+            <a href="#" class="nav-link">main</a>
+            <a href="#" class="nav-link">creations</a>
+            <a href="/gifmaker" class="nav-link">gif maker</a>
+            <a href="#" class="nav-link">socials</a>
+        </nav>
+    </div>
+</header>
+
+<div id="scroll-container">
+    <!-- Page 1: Creations Text -->
+    <section class="page" id="page1">
+        <div class="page-content">
+            <h1 class="creations-title">Creations</h1>
+            <div class="scroll-indicator">
+                <span>Scroll down</span>
+                <div class="arrow">↓</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 2: GTA Radio -->
+    <section class="page" id="page2">
+        <div class="layout">
+            <div class="three-area">
+                <div id="container3D"></div>
+            </div>
+            <div class="text-area">
+                <h2>GTA Radio</h2>
+                <p>A device that plugs into your cars cigarette lighter port and allows you to play gta radio stations on your car radio.</p>
+                <div class="action-cards">
+                    <div class="glass-card" onclick="handleButtonClick('view')">
+                        <div class="card-icon">👁️</div>
+                        <h3>View Details</h3>
+                        <p>Watch the demonstration video</p>
+                    </div>
+                    <div class="glass-card" onclick="handleButtonClick('download')">
+                        <div class="card-icon">📥</div>
+                        <h3>Download Files</h3>
+                        <p>Get the build instructions</p>
+                    </div>
+                    <div class="glass-card" onclick="handleButtonClick('purchase')">
+                        <div class="card-icon">🛒</div>
+                        <h3>Purchase</h3>
+                        <p>Buy the finished product</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 3: Writerdeck -->
+    <section class="page" id="page3">
+        <div class="layout reverse-layout">
+            <div class="text-area">
+                <h2>Writerdeck</h2>
+                <p>A portable writing device with mechanical keyboard and e-ink display, perfect for distraction-free writing sessions anywhere.</p>
+                <div class="action-cards">
+                    <div class="glass-card" onclick="handleButtonClick('view')">
+                        <div class="card-icon">👁️</div>
+                        <h3>View Details</h3>
+                        <p>Watch the demonstration video</p>
+                    </div>
+                    <div class="glass-card" onclick="handleButtonClick('download')">
+                        <div class="card-icon">📥</div>
+                        <h3>Download Files</h3>
+                        <p>Get the build instructions</p>
+                    </div>
+                    <div class="glass-card" onclick="handleButtonClick('purchase')">
+                        <div class="card-icon">🛒</div>
+                        <h3>Purchase</h3>
+                        <p>Buy the finished product</p>
+                    </div>
+                </div>
+            </div>
+            <div class="three-area">
+                <div id="container3D-2"></div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Navigation Dots -->
+<div id="navigation">
+    <div class="nav-dot active" data-page="0"></div>
+    <div class="nav-dot" data-page="1"></div>
+    <div class="nav-dot" data-page="2"></div>
+</div>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>

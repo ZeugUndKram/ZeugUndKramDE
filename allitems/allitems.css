@@ -1,0 +1,643 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background: #3b248f;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Fixed Header */
+#main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(59, 36, 143, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.header-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: white;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.header-right {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    text-transform: lowercase;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #a594f9;
+}
+
+.nav-link.active {
+    color: #a594f9;
+}
+
+/* All Items Container */
+.allitems-container {
+    padding-top: 70px;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #3b248f 0%, #2a1a6b 100%);
+    padding: 2rem;
+}
+
+.allitems-content {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 90%;
+    width: 1000px;
+}
+
+.allitems-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: white;
+    letter-spacing: 2px;
+}
+
+/* Loading and Error States */
+.loading {
+    font-size: 1.2rem;
+    color: #a594f9;
+    padding: 2rem;
+}
+
+.error-message {
+    font-size: 1.2rem;
+    color: #ff6b6b;
+    padding: 2rem;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+/* Table Styles */
+#data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#table-header {
+    background: #3b248f;
+}
+
+#table-header th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: white;
+    font-size: 1rem;
+    border-bottom: 2px solid #a594f9;
+}
+
+#table-body td {
+    padding: 1rem;
+    text-align: left;
+    color: #333;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.95rem;
+}
+
+#table-body tr:last-child td {
+    border-bottom: none;
+}
+
+#table-body tr:nth-child(even) {
+    background: rgba(59, 36, 143, 0.05);
+}
+
+#table-body tr:hover {
+    background: rgba(165, 148, 249, 0.1);
+}
+
+/* Image styling in table */
+#table-body td:first-child {
+    text-align: center;
+    width: 70px;
+}
+
+/* Checklist Progress */
+.checklist-progress {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.progress-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#progress-text {
+    font-weight: 600;
+    color: #a594f9;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #a594f9;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Checkbox styling */
+.checkbox-cell {
+    text-align: center;
+    width: 60px;
+}
+
+.checkbox-cell input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #a594f9;
+}
+
+/* Completed row styling */
+.row-completed {
+    opacity: 0.6;
+    background: rgba(100, 255, 100, 0.1) !important;
+}
+
+#table-body td img {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Level Selector and Save/Load Buttons */
+.level-selector {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.level-selector label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+    color: white;
+}
+
+.level-selector select {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(59, 36, 143, 0.3);
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.level-selector select:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(59, 36, 143, 0.5);
+}
+
+.save-load-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.action-button {
+    background: #a594f9;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.action-button:hover {
+    background: #8a7af0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.action-button:active {
+    transform: translateY(0);
+}
+
+/* Temporary Messages */
+.temp-message {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    z-index: 1001;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.temp-message.success {
+    background: #4CAF50;
+    color: white;
+    border: 1px solid #45a049;
+}
+
+.temp-message.error {
+    background: #f44336;
+    color: white;
+    border: 1px solid #da190b;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* File input styling */
+#file-input {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .allitems-content {
+        padding: 1rem;
+        max-width: 95%;
+    }
+
+    .allitems-title {
+        font-size: 2.5rem;
+    }
+
+    #table-header th,
+    #table-body td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .header-content {
+        padding: 0 1rem;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .header-right {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .save-load-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .action-button {
+        width: 200px;
+    }
+
+    .temp-message {
+        right: 10px;
+        left: 10px;
+        text-align: center;
+    }
+
+    .level-selector {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .level-selector label {
+        margin-right: 0;
+    }
+
+    .checklist-progress {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .allitems-title {
+        font-size: 2rem;
+    }
+
+    #table-header th,
+    #table-body td {
+        padding: 0.5rem 0.25rem;
+        font-size: 0.8rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .header-right {
+        gap: 0.5rem;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+    }
+
+    .allitems-container {
+        padding: 1rem;
+    }
+
+    .allitems-content {
+        padding: 0.75rem;
+    }
+
+    .action-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .level-selector select {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .progress-info {
+        gap: 0.25rem;
+    }
+
+    #progress-text {
+        font-size: 0.9rem;
+    }
+
+    .checkbox-cell input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .header-content {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .header-right {
+        gap: 0.3rem;
+    }
+
+    .nav-link {
+        font-size: 0.7rem;
+    }
+
+    .allitems-title {
+        font-size: 1.8rem;
+    }
+
+    .save-load-buttons {
+        gap: 0.5rem;
+    }
+
+    .action-button {
+        width: 180px;
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    #main-header {
+        position: static;
+        background: #3b248f;
+    }
+
+    .allitems-container {
+        padding-top: 0;
+    }
+
+    .save-load-buttons,
+    .level-selector,
+    .checklist-progress {
+        display: none;
+    }
+
+    #data-table {
+        box-shadow: none;
+        background: white;
+    }
+
+    #table-body td {
+        color: black;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .allitems-content {
+        border: 2px solid white;
+    }
+
+    .progress-bar {
+        border: 1px solid white;
+    }
+
+    .action-button {
+        border: 2px solid white;
+    }
+
+    #data-table {
+        border: 2px solid white;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .temp-message {
+        animation: none;
+    }
+
+    .action-button:hover {
+        transform: none;
+    }
+}
+
+/* Dark mode support (if needed in future) */
+@media (prefers-color-scheme: dark) {
+    /* Base styles already support dark background */
+}
+
+/* Focus styles for accessibility */
+.action-button:focus,
+.level-selector select:focus,
+.nav-link:focus,
+.checkbox-cell input[type="checkbox"]:focus {
+    outline: 2px solid #a594f9;
+    outline-offset: 2px;
+}
+
+/* Loading animation */
+.loading {
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid #a594f9;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Version Selector and Save/Load Buttons */
+.version-selector {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.version-selector label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+    color: white;
+}
+
+.version-selector select {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(59, 36, 143, 0.3);
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 150px; /* Ensure dropdown is wide enough for names */
+    max-width: 250px;
+}
+
+.version-selector select:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(59, 36, 143, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .version-selector {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .version-selector label {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .version-selector select {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+}

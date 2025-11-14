@@ -1,0 +1,447 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #000000;
+    color: white;
+    overflow: hidden;
+}
+
+/* Fixed Header - Actually pushed to edges */
+#main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 0 40px; /* Added padding to push content from edges */
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Actually pushes left and right */
+    align-items: center;
+}
+
+/* Logo - Bebas Neue Font */
+.logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: white;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Navigation Links */
+.header-right {
+    display: flex;
+    gap: 2rem;
+}
+
+h2 {
+    color: #7db359;
+}
+
+.nav-link {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    text-transform: lowercase;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #9bf994;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #66be60;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Remove padding from scroll container - header overlays content */
+#scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+/* Pages take full viewport height */
+.page {
+    height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Page 1: Creations */
+#page1 {
+    background: linear-gradient(135deg, #0b1e00 0%, #000000 100%);
+}
+
+.page-content {
+    text-align: center;
+}
+
+.creations-title {
+    font-size: 8rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #fff, #97d769);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator span {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.arrow {
+    font-size: 1.5rem;
+}
+
+/* Page 2 & 3: 3D Model Layout */
+#page2, #page3 {
+    background: rgba(0, 0, 0, 0.76); /* Same background for both pages */
+}
+
+.layout {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Reverse layout for page 3 */
+.reverse-layout {
+    flex-direction: row-reverse;
+}
+
+.three-area {
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.text-area {
+    width: 50%;
+    height: 100%;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+/* Border styling */
+.layout:not(.reverse-layout) .text-area {
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.reverse-layout .text-area {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.text-area h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.text-area p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.4rem 1.8rem;
+    background: rgba(123, 179, 89, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(123, 179, 89, 0.2);
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+            circle 100px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(123, 179, 89, 0.4) 0%,
+            rgba(123, 179, 89, 0.2) 40%,
+            transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: 16px;
+}
+
+.action-btn:hover::before {
+    opacity: 1;
+}
+
+.action-btn:hover {
+    background: rgba(123, 179, 89, 0.15);
+    border: 1px solid rgba(123, 179, 89, 0.4);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+            0 12px 30px rgba(0, 0, 0, 0.2),
+            0 0 0 1px rgba(123, 179, 89, 0.1),
+            inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.btn-icon {
+    font-size: 1.3rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.action-btn:hover .btn-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Navigation Dots */
+#navigation {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+.nav-dot:hover {
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-5px) translateX(-50%);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #main-header {
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .header-right {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .layout, .reverse-layout {
+        flex-direction: column;
+    }
+
+    .three-area, .text-area {
+        width: 100%;
+        height: 50%;
+    }
+
+    .creations-title {
+        font-size: 4rem;
+    }
+
+    .text-area {
+        padding: 2rem;
+    }
+
+    .text-area h2 {
+        font-size: 2rem;
+    }
+
+    #navigation {
+        right: 1rem;
+    }
+
+    .action-btn {
+        padding: 1.2rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #main-header {
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .header-right {
+        gap: 0.5rem;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+    }
+
+    .creations-title {
+        font-size: 3rem;
+    }
+
+    .text-area h2 {
+        font-size: 1.5rem;
+    }
+
+    .text-area p {
+        font-size: 1rem;
+    }
+
+    .action-btn {
+        padding: 1rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+#container3D, #container3D-2 {
+    width: 100%;
+    height: 100%;
+}
+
+#container3D canvas, #container3D-2 canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+/* Features list */
+.features {
+    margin-top: 2rem;
+}
+
+.features h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #7db359;
+}
+
+.features ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.features li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.features li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #7db359;
+}

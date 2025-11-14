@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>All Items - Zeug und Kram</title>
+  <link rel="stylesheet" href="allitems.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header id="main-header">
+
+  <div class="header-content">
+    <div class="header-left">
+      <h1 class="logo">Zeug und Kram</h1>
+    </div>
+    <nav class="header-right">
+      <a href="../creations/index.html" class="nav-link">main</a>
+      <a href="../creations/index.html#page1" class="nav-link">creations</a>
+      <a href="../gifmaker/index.html" class="nav-link">gif maker</a>
+      <a href="../socials/index.html" class="nav-link">socials</a>
+      <a href="#" class="nav-link active">all items</a>
+    </nav>
+  </div>
+</header>
+
+<main class="allitems-container">
+  <div class="checklist-progress">
+    <div class="progress-info">
+      <span id="progress-text">Checked: 0/0</span>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+  </div>
+  <div class="allitems-content">
+    <h2 class="allitems-title">All Items</h2>
+    <div class="loading" id="loading">Loading data...</div>
+    <table id="data-table" style="display: none;">
+      <thead id="table-header"></thead>
+      <tbody id="table-body"></tbody>
+    </table>
+    <div class="error-message" id="error-message" style="display: none;">
+      Failed to load data. Please try again later.
+    </div>
+  </div>
+</main>
+
+<script src="allitems.js"></script>
+</body>
+</html>

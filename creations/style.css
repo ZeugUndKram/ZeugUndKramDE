@@ -1,0 +1,510 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #000000;
+    color: white;
+    overflow: hidden;
+}
+
+/* Fixed Header - Overlay style */
+#main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.header-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo - Image Style */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 40px;
+}
+
+.logo-image {
+    max-height: 60px;
+    max-width: 150px;
+    width: auto;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 8px rgba(123, 179, 89, 0.7));
+}
+
+/* Navigation Links */
+.header-right {
+    display: flex;
+    gap: 2rem;
+}
+
+h2 {
+    color: #7db359;
+}
+
+.nav-link {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    text-transform: lowercase;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #9bf994;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #66be60;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Remove padding from scroll container - header overlays content */
+#scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+/* Pages take full viewport height */
+.page {
+    height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Page 1: Creations */
+#page1 {
+    background: linear-gradient(135deg, #0b1e00 0%, #000000 100%);
+}
+
+.page-content {
+    text-align: center;
+}
+
+.creations-title {
+    font-size: 8rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #fff, #97d769);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator span {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.arrow {
+    font-size: 1.5rem;
+}
+
+/* Page 2: 3D Model Layout */
+#page2 {
+    background: rgba(0, 0, 0, 0.76);
+}
+
+.layout {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.three-area {
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.text-area {
+    width: 50%;
+    height: 100%;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.text-area h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.text-area p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Glass Cards - Professional Style */
+.action-cards {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.glass-card {
+    width: 240px;
+    height: 360px;
+    background: rgba(123, 179, 89, 0.17);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(123, 179, 89, 0.3);
+    box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.5),
+            inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+            inset 0 0 14px 7px rgba(123, 179, 89, 0.3);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.8),
+            transparent
+    );
+}
+
+.glass-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.8),
+            transparent,
+            rgba(255, 255, 255, 0.3)
+    );
+}
+
+.glass-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow:
+            0 15px 40px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6),
+            inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+            inset 0 0 20px 10px rgba(123, 179, 89, 0.4);
+    border: 1px solid rgba(123, 179, 89, 0.5);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.glass-card:hover .card-icon {
+    transform: scale(1.2);
+}
+
+.glass-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: 600;
+}
+
+.glass-card p {
+    font-size: 1rem;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* Navigation Dots */
+#navigation {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+.nav-dot:hover {
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-5px) translateX(-50%);
+    }
+}
+
+/* Page 3: Writerdeck */
+#page3 {
+    background: linear-gradient(135deg, #1e0b00 0%, #000000 100%);
+}
+
+.reverse-layout {
+    flex-direction: row-reverse;
+}
+
+.reverse-layout .text-area {
+    border-left: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 3D Containers */
+#container3D, #container3D-2 {
+    width: 100%;
+    height: 100%;
+}
+
+#container3D canvas, #container3D-2 canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .action-cards {
+        justify-content: center;
+    }
+
+    .glass-card {
+        width: 200px;
+        height: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0 1rem;
+    }
+
+    .logo-image {
+        max-height: 25px;
+        max-width: 120px;
+    }
+
+    .header-right {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .layout {
+        flex-direction: column;
+    }
+
+    .three-area, .text-area {
+        width: 100%;
+        height: 50%;
+    }
+
+    .creations-title {
+        font-size: 4rem;
+    }
+
+    .text-area {
+        padding: 2rem;
+    }
+
+    .text-area h2 {
+        font-size: 2rem;
+    }
+
+    #navigation {
+        right: 1rem;
+    }
+
+    .action-cards {
+        justify-content: center;
+    }
+
+    .glass-card {
+        width: 180px;
+        height: 280px;
+        padding: 1.5rem;
+    }
+
+    .card-icon {
+        font-size: 2.5rem;
+    }
+
+    .glass-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .glass-card p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-image {
+        max-height: 20px;
+        max-width: 100px;
+    }
+
+    .header-right {
+        gap: 0.5rem;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+    }
+
+    .creations-title {
+        font-size: 3rem;
+    }
+
+    .text-area h2 {
+        font-size: 1.5rem;
+    }
+
+    .text-area p {
+        font-size: 1rem;
+    }
+
+    .action-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .glass-card {
+        width: 240px;
+        height: 120px;
+        flex-direction: row;
+        text-align: left;
+        padding: 1.5rem;
+    }
+
+    .card-icon {
+        margin-bottom: 0;
+        margin-right: 1rem;
+        font-size: 2rem;
+    }
+
+    .glass-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .glass-card p {
+        font-size: 0.8rem;
+    }
+}

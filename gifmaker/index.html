@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Art Animation Tool</title>
+    <link rel="stylesheet" href="gifmaker.css">
+    <script src="../dist/gif.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Fixed Header matching creations page -->
+<header id="main-header">
+    <div class="header-content">
+        <div class="header-left">
+            <a href="/main" class="logo-link">
+                <img src="../images/ZeugUndKramFlach.png" alt="Zeug und Kram" class="logo-image">
+            </a>
+        </div>
+        <nav class="header-right">
+            <a href="/main" class="nav-link">main</a>
+            <a href="/creations" class="nav-link">creations</a>
+            <a href="/gifmaker" class="nav-link">gif maker</a>
+            <a href="/socials" class="nav-link">socials</a>
+        </nav>
+    </div>
+</header>
+
+<div class="main-container">
+    <h1 class="app-title">Flipnote Gif Maker</h1>
+
+    <div class="workspace">
+        <div class="panel tools-panel">
+            <div class="tool-group">
+                <h3>Brush Size</h3>
+                <div class="brush-sizes">
+                    <button class="brush-btn" data-size="1">Thin</button>
+                    <button class="brush-btn active" data-size="2">Medium</button>
+                    <button class="brush-btn" data-size="4">Thick</button>
+                </div>
+            </div>
+
+            <div class="tool-group">
+                <h3>Colors</h3>
+                <div class="color-palette">
+                    <button class="color-btn active" style="background-color: #000000;" data-color="#000000"></button>
+                    <button class="color-btn" style="background-color: #ffffff;" data-color="#ffffff"></button>
+                    <button class="color-btn" style="background-color: #f83e3e;" data-color="#f83e3e"></button>
+                    <button class="color-btn" style="background-color: #1fce1f;" data-color="#1fce1f"></button>
+                    <button class="color-btn" style="background-color: #2222c2;" data-color="#2222c2"></button>
+                    <button class="color-btn" style="background-color: #ffff00;" data-color="#ffff00"></button>
+                    <button class="color-btn" style="background-color: #d931d9;" data-color="#d931d9"></button>
+                    <button class="color-btn" style="background-color: #1bd7d7;" data-color="#1bd7d7"></button>
+                    <button class="color-btn" style="background-color: #8a8a8a;" data-color="#8a8a8a"></button>
+                    <button class="color-btn" style="background-color: #7300ff;" data-color="#7300ff"></button>
+                </div>
+            </div>
+
+            <div class="tool-group">
+                <h3>Tools</h3>
+                <button class="action-btn" id="eraser">Eraser</button>
+                <button class="action-btn" id="clear-btn">Clear Frame</button>
+            </div>
+        </div>
+
+        <div class="canvas-panel">
+
+            <div class="canvas-container">
+                <canvas id="drawing-canvas" width="256" height="192"></canvas>
+            </div>
+
+            <div class="frame-navigation">
+                <button class="frame-btn active" data-frame="0">Frame 1</button>
+                <button class="frame-btn" data-frame="1">Frame 2</button>
+                <button class="frame-btn" data-frame="2">Frame 3</button>
+            </div>
+        </div>
+
+        <div class="panel actions-panel">
+            <h2 class="panel-title">Mach kurze Flipnote gifs wie in meinen Videos</h2>
+
+            <div class="action-group">
+                <h3>Animation</h3>
+                <button class="action-btn primary" id="play-btn">Play Animation</button>
+                <button class="action-btn" id="stop-btn" disabled>Stop</button>
+
+                <div class="fps-control">
+                    <label for="fps-slider">FPS:</label>
+                    <input type="range" id="fps-slider" min="1" max="30" value="12">
+                    <span id="fps-value">12</span>
+                </div>
+            </div>
+
+            <div class="action-group">
+                <h3>Onion Skinning</h3>
+                <div class="toggle-group">
+                    <label for="onion-toggle">Enable:</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="onion-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="action-group">
+                <h3>Export</h3>
+                <button class="action-btn primary" id="export-gif">Export as GIF</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Export Modal -->
+<div class="export-modal" id="export-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Export Animation</h2>
+            <button class="close-btn" id="close-modal">&times;</button>
+        </div>
+
+        <div class="export-preview" id="export-preview">
+            <!-- Preview will be inserted here -->
+        </div>
+
+        <div class="progress-bar" id="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <div class="export-actions">
+            <button class="export-btn cancel" id="cancel-export">Cancel</button>
+            <button class="export-btn" id="confirm-export">Export GIF</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="gifmaker.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeug und Kram - Main</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Fixed Header -->
+<header id="main-header">
+    <div class="header-content">
+        <div class="header-left">
+            <h1 class="logo">Zeug und Kram</h1>
+        </div>
+        <nav class="header-right">
+            <a href="#" class="nav-link">main</a>
+            <a href="/creations" class="nav-link">creations</a>
+            <a href="/gifmaker" class="nav-link">gif maker</a>
+            <a href="#" class="nav-link">socials</a>
+        </nav>
+    </div>
+</header>
+
+<div id="scroll-container">
+    <!-- Page 1: Welcome -->
+    <section class="page" id="page1">
+        <div class="page-content">
+            <h1 class="welcome-title">Welcome</h1>
+            <p class="page-subtitle">Discover amazing creations and interactive experiences</p>
+            <div class="scroll-indicator">
+                <span>Scroll down</span>
+                <div class="arrow">↓</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 2: Sliding Puzzle -->
+    <section class="page" id="page2">
+        <div class="layout">
+            <div class="puzzle-area">
+                <div class="puzzle-container">
+                    <div class="puzzle-grid" id="puzzle-grid">
+                        <!-- Puzzle pieces will be generated here -->
+                    </div>
+                </div>
+            </div>
+            <div class="text-area">
+                <h2>Sliding Puzzle</h2>
+                <p>Arrange the pieces to complete the image. Click on pieces adjacent to the empty space to move them. Challenge yourself with this classic puzzle game!</p>
+
+                <div class="puzzle-stats">
+                    <div class="stat-box">
+                        <div class="stat-value" id="move-count">0</div>
+                        <div class="stat-label">Moves</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="timer">00:00</div>
+                        <div class="stat-label">Time</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn" id="shuffle-btn">
+                        <span class="btn-icon">🔀</span>
+                        Shuffle Puzzle
+                    </button>
+                    <button class="action-btn" id="reset-btn">
+                        <span class="btn-icon">🔄</span>
+                        Reset Puzzle
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 3: About -->
+    <section class="page" id="page3">
+        <div class="layout">
+            <div class="text-area">
+                <h2>About Zeug und Kram</h2>
+                <p>We create innovative projects and interactive experiences that blend technology with creativity. From 3D models to puzzle games, we're passionate about building unique digital experiences.</p>
+                <div class="features">
+                    <h3>What We Offer:</h3>
+                    <ul>
+                        <li>Interactive 3D experiences</li>
+                        <li>Creative web applications</li>
+                        <li>Open source projects</li>
+                        <li>Custom digital solutions</li>
+                        <li>Educational content</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="image-area">
+                <div class="placeholder-image">
+                    <span>More Projects Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Navigation Dots -->
+<div id="navigation">
+    <div class="nav-dot active" data-page="0"></div>
+    <div class="nav-dot" data-page="1"></div>
+    <div class="nav-dot" data-page="2"></div>
+</div>
+
+<!-- Language Toggle Button -->
+<div id="language-toggle">
+    <button id="language-btn">
+        <span class="flag-svg" id="flag-svg">
+            <!-- UK Flag SVG will be inserted here -->
+        </span>
+        <span class="language-text">EN</span>
+    </button>
+</div>
+
+<!-- Win Message -->
+<div class="win-message" id="win-message">
+    <div class="win-content">
+        <h2>Congratulations!</h2>
+        <p>You've solved the puzzle!</p>
+        <p id="win-stats">Moves: 0 | Time: 00:00</p>
+        <button class="action-btn" id="play-again-btn">
+            <span class="btn-icon">🎮</span>
+            Play Again
+        </button>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
