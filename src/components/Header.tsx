@@ -4,8 +4,6 @@ import Image from "next/image"; // 1. Import the Image component
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 flex w-full h-20 items-center justify-between px-6 bg-black">
-      
-      {/* 2. Replace the text with the Image component */}
       <Link href="/">
         <Image 
           src="/ZeugUndKramFlach.png" 
