@@ -103,11 +103,11 @@ watch(minYear, (val) => {
   else zIndexMin.value = 5;
 })
 
-// Fix for 'Object possibly undefined' by checking length explicitly
 const battleOptions = computed(() => {
-  if (queue.value.length >= 2 && queue.value[0].length > 0 && queue.value[1].length > 0) {
-    return [queue.value[0][0], queue.value[1][0]]
-  }
+  // Safe access with optional chaining to prevent 'possibly undefined'
+  const first = queue.value?.[0]?.[0]
+  const second = queue.value?.[1]?.[0]
+  if (first && second) return [first, second]
   return []
 })
 
@@ -130,7 +130,7 @@ const startRanking = () => {
 
 const selectOption = (idx: number) => {
   const song = battleOptions.value[idx]
-  if (!song) return; // Defensive check for TS
+  if (!song) return
   
   if (currentSelection.value === idx && isAudioPlaying.value) {
     audioPlayer.pause(); isAudioPlaying.value = false;
@@ -142,19 +142,27 @@ const selectOption = (idx: number) => {
 const confirmChoice = () => {
   if (currentSelection.value === null || queue.value.length < 2) return
   
-  history.value.push({ q: JSON.parse(JSON.stringify(queue.value)), m: JSON.parse(JSON.stringify(mergedSoFar.value)) })
+  history.value.push({ 
+    q: JSON.parse(JSON.stringify(queue.value)), 
+    m: JSON.parse(JSON.stringify(mergedSoFar.value)) 
+  })
   
-  // Use ! (non-null assertion) because we know these exist from the check above
-  let L = queue.value[0]! 
-  let R = queue.value[1]!
+  const leftSide = queue.value[0]
+  const rightSide = queue.value[1]
   
-  if (currentSelection.value === 0) mergedSoFar.value.push(L.shift()!) 
-  else mergedSoFar.value.push(R.shift()!)
+  if (!leftSide || !rightSide) return
 
-  if (L.length === 0 || R.length === 0) {
+  if (currentSelection.value === 0) {
+    const picked = leftSide.shift()
+    if (picked) mergedSoFar.value.push(picked)
+  } else {
+    const picked = rightSide.shift()
+    if (picked) mergedSoFar.value.push(picked)
+  }
+
+  if (leftSide.length === 0 || rightSide.length === 0) {
     queue.value.splice(0, 2); 
-    // Add the remaining items from the other side
-    queue.value.push([...mergedSoFar.value, ...L, ...R]); 
+    queue.value.push([...mergedSoFar.value, ...leftSide, ...rightSide]); 
     mergedSoFar.value = []
   }
   
@@ -175,11 +183,6 @@ const undo = () => {
     isAudioPlaying.value = false; 
   }
 }
-
-// Result list safe check
-const finalResults = computed(() => {
-  return (queue.value.length > 0) ? queue.value[0] : []
-})
 </script>
 
 <template>
@@ -203,7 +206,7 @@ const finalResults = computed(() => {
       <div class="progress-bar"><div class="fill" :style="{ width: progress + '%' }"></div></div>
 
       <div class="battle-grid">
-        <div v-for="(song, idx) in battleOptions" :key="song.name" class="song-card" @click="selectOption(idx)">
+        <div v-for="(song, idx) in battleOptions" :key="song?.name ?? idx" class="song-card" @click="selectOption(idx)">
           <div 
             class="image-wrapper" 
             :class="{ 
@@ -211,7 +214,7 @@ const finalResults = computed(() => {
               'not-selected': currentSelection !== null && currentSelection !== idx 
             }"
           >
-            <img :src="song.image" :alt="song.name" />
+            <img :src="song?.image ?? ''" :alt="song?.name ?? ''" />
             <div class="play-overlay">
               <span class="icon" :class="{ 'pause-active': isAudioPlaying && currentSelection === idx }">
                 {{ isAudioPlaying && currentSelection === idx ? '❙❙' : '▶' }}
@@ -219,8 +222,8 @@ const finalResults = computed(() => {
             </div>
           </div>
           <div class="song-info">
-            <h3>{{ song.name }}</h3>
-            <p>{{ song.artist }} ({{ song.year }})</p>
+            <h3>{{ song?.name ?? 'Unknown' }}</h3>
+            <p>{{ song?.artist ?? 'Unknown' }} ({{ song?.year ?? '' }})</p>
           </div>
         </div>
       </div>
@@ -234,11 +237,11 @@ const finalResults = computed(() => {
     <div v-if="step === 'results'" class="results-view">
       <h1>Dein Ranking</h1>
       <div class="results-simple-list">
-        <div v-for="(song, index) in finalResults" :key="song.name" class="simple-item">
+        <div v-for="(song, index) in (queue[0] ?? [])" :key="song?.name ?? index" class="simple-item">
           <span class="rank-num">{{ index + 1 }}</span>
           <div class="song-details">
-            <span class="name">{{ song.name }}</span>
-            <span class="meta">{{ song.artist }} ({{ song.year }})</span>
+            <span class="name">{{ song?.name ?? '' }}</span>
+            <span class="meta">{{ song?.artist ?? '' }} ({{ song?.year ?? '' }})</span>
           </div>
         </div>
       </div>
