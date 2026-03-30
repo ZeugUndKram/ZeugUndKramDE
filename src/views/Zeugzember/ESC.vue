@@ -81,6 +81,7 @@ const ALL_CONTESTANTS: Contestant[] = [
     { "name": "Blood & Glitter", "artist": "Lord of the Lost", "year": 2023, "image": "https://m.media-amazon.com/images/I/91TcuhnfprL.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7b/2e/34/7b2e34a1-aba9-1f53-d47c-226a09f61e55/mzaf_12325837668306152270.plus.aac.ep.m4a" },
     { "name": "Always On The Run", "artist": "Isaak", "year": 2024, "image": "https://i.scdn.co/image/ab67616d0000b273a598c7307ed639bd1aba9fd9", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/05/4a/ac/054aac9f-8b18-8ee3-5d37-6152cf3dd1b0/mzaf_4050896113583734468.plus.aac.ep.m4a" },
     { "name": "Baller", "artist": "Abor & Tynna", "year": 2025, "image": "https://images.genius.com/155ece2aa75e09a8d129f94fa717c12c.1000x1000x1.png", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/68/18/f5/6818f555-3560-8ac8-38af-be9d636ea16e/mzaf_17457726171438638135.plus.aac.ep.m4a" }
+
 ];
 
 const step = ref('intro')
@@ -102,7 +103,13 @@ watch(minYear, (val) => {
   else zIndexMin.value = 5;
 })
 
-const battleOptions = computed(() => queue.value.length >= 2 ? [queue.value[0][0], queue.value[1][0]] : [])
+// Fix for 'Object possibly undefined' by checking length explicitly
+const battleOptions = computed(() => {
+  if (queue.value.length >= 2 && queue.value[0].length > 0 && queue.value[1].length > 0) {
+    return [queue.value[0][0], queue.value[1][0]]
+  }
+  return []
+})
 
 const progress = computed(() => {
   if (!activePool.value.length || step.value !== 'battle') return 0;
@@ -123,6 +130,8 @@ const startRanking = () => {
 
 const selectOption = (idx: number) => {
   const song = battleOptions.value[idx]
+  if (!song) return; // Defensive check for TS
+  
   if (currentSelection.value === idx && isAudioPlaying.value) {
     audioPlayer.pause(); isAudioPlaying.value = false;
   } else {
@@ -131,23 +140,46 @@ const selectOption = (idx: number) => {
 }
 
 const confirmChoice = () => {
-  if (currentSelection.value === null) return
+  if (currentSelection.value === null || queue.value.length < 2) return
+  
   history.value.push({ q: JSON.parse(JSON.stringify(queue.value)), m: JSON.parse(JSON.stringify(mergedSoFar.value)) })
-  let L = queue.value[0], R = queue.value[1]
+  
+  // Use ! (non-null assertion) because we know these exist from the check above
+  let L = queue.value[0]! 
+  let R = queue.value[1]!
+  
   if (currentSelection.value === 0) mergedSoFar.value.push(L.shift()!) 
   else mergedSoFar.value.push(R.shift()!)
 
   if (L.length === 0 || R.length === 0) {
-    queue.value.splice(0, 2); queue.value.push([...mergedSoFar.value, ...L, ...R]); mergedSoFar.value = []
+    queue.value.splice(0, 2); 
+    // Add the remaining items from the other side
+    queue.value.push([...mergedSoFar.value, ...L, ...R]); 
+    mergedSoFar.value = []
   }
-  audioPlayer.pause(); isAudioPlaying.value = false; currentSelection.value = null;
+  
+  audioPlayer.pause(); 
+  isAudioPlaying.value = false; 
+  currentSelection.value = null;
+  
   if (queue.value.length <= 1) step.value = 'results'
 }
 
 const undo = () => {
   const last = history.value.pop()
-  if (last) { queue.value = last.q; mergedSoFar.value = last.m; currentSelection.value = null; audioPlayer.pause(); isAudioPlaying.value = false; }
+  if (last) { 
+    queue.value = last.q; 
+    mergedSoFar.value = last.m; 
+    currentSelection.value = null; 
+    audioPlayer.pause(); 
+    isAudioPlaying.value = false; 
+  }
 }
+
+// Result list safe check
+const finalResults = computed(() => {
+  return (queue.value.length > 0) ? queue.value[0] : []
+})
 </script>
 
 <template>
@@ -202,7 +234,7 @@ const undo = () => {
     <div v-if="step === 'results'" class="results-view">
       <h1>Dein Ranking</h1>
       <div class="results-simple-list">
-        <div v-for="(song, index) in queue[0]" :key="song.name" class="simple-item">
+        <div v-for="(song, index) in finalResults" :key="song.name" class="simple-item">
           <span class="rank-num">{{ index + 1 }}</span>
           <div class="song-details">
             <span class="name">{{ song.name }}</span>
