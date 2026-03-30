@@ -21,8 +21,10 @@
         <h4>Quick Links</h4>
         <ul>
           <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Datenschutz</a></li>
-          <li><a href="#">Impressum</a></li>
+          <li><a href="/privacy">Datenschutz</a></li>
+          <li>
+  <router-link to="/legal">Impressum</router-link>
+</li>
         </ul>
       </div>
 

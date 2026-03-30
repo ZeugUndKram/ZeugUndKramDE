@@ -39,14 +39,18 @@ onUnmounted(() => {
   <header class="header">
     <div class="header-container">
       <div class="logo-area">
-        <img src="/images/ZeugUndKramFlach.png" alt="Logo" class="nav-logo" />
-      </div>
+      <div class="logo-area">
+        <router-link to="/">
+          <img src="/images/ZeugUndKramFlach.png" alt="Logo" class="nav-logo" />
+        </router-link>
+      </div>      
+    </div>
 
       <nav class="desktop-nav">
-        <a href="#home">Home</a>
-        <a href="#leistungen">Leistungen</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#kontakt">Kontakt</a>
+        <a href="/">Home</a>
+        <a href="#leistungen">Creations</a>
+        <a href="/zeugzember">Zeugzember</a>
+        <a href="/socials">Socials</a>
       </nav>
 
       <button 
@@ -66,10 +70,10 @@ onUnmounted(() => {
     <transition name="fade">
       <nav v-if="isMenuOpen" class="mobile-nav">
         <div class="mobile-nav-links">
-          <a href="#home" @click="closeMenu">Home</a>
-          <a href="#leistungen" @click="closeMenu">Leistungen</a>
-          <a href="#portfolio" @click="closeMenu">Portfolio</a>
-          <a href="#kontakt" @click="closeMenu">Kontakt</a>
+          <a href="/" @click="closeMenu">Home</a>
+          <a href="#leistungen" @click="closeMenu">Creations</a>
+          <a href="/zeugzember" @click="closeMenu">Zeugzember</a>
+          <a href="/socials" @click="closeMenu">Socials</a>
         </div>
       </nav>
     </transition>
