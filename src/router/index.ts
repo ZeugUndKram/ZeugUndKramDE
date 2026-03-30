@@ -23,6 +23,11 @@ const routes = [
     component: () => import('../views/Zeugzember/ESC.vue')
   },
   {
+    path: '/zeugzember/Jamba',
+    name: 'jamba',
+    component: () => import('../views/Zeugzember/Jamba.vue')
+  },
+  {
     path: '/privacy',
     name: 'privacy',
     component: () => import('../views/Privacy.vue')

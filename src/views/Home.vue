@@ -16,13 +16,17 @@
 
 <style scoped>
 .landing-page {
-  flex: 1;
+  /* 100vh (viewport height) minus 80px (your header height).
+     This ensures the footer starts exactly at the bottom edge of the screen.
+  */
+  margin-top: -80px;
+  min-height: calc(100vh - 0px); 
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  /* This padding ensures it doesn't hit the header/footer */
-  padding: 10rem 0; 
+  /* Removed the 10rem vertical padding to prevent over-stretching */
+  padding: 2rem 0; 
 }
 
 .hero {
@@ -31,35 +35,30 @@
   padding: 0 2rem;
 }
 
-/* Inside Home.vue <style scoped> */
 .hero-title {
   font-family: var(--font-header);
   font-size: clamp(2rem, 6vw, 3.5rem);
-  /* Increase this so the two lines of text have air */
   line-height: 1.4; 
-  /* Add more space between the text and the logo */
-  margin-bottom: 3rem; 
+  margin-bottom: 2rem; /* Slightly reduced to keep everything 'above the fold' */
   font-weight: 900;
   color: #eee;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-/* Inside Home.vue <style scoped> */
+
 .hero-logo {
   display: block;
   margin: 0 auto;
-  /* Reduce the max-width so it doesn't feel scrunched against the text */
   width: 80%;
   max-width: 500px; 
   height: auto;
-  /* Add significant space around the logo image */
-  padding: 2rem 0; 
+  padding: 1.5rem 0; 
 }
 
 p {
   font-size: 1.2rem;
   color: #aaa;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem; /* Slightly reduced */
 }
 
 .actions {
@@ -69,15 +68,15 @@ p {
   flex-wrap: wrap;
 }
 
-/* Inside App.vue <style> */
+/* Note: Keeping these styles here as they were in your original file, 
+   but ideally 'app-wrapper' and 'main' flex settings should be in App.vue 
+*/
 .app-wrapper {
   display: flex;
   flex-direction: column;
-  /* Forces the wrapper to be at least the full height of the screen */
   min-height: 100vh; 
 }
 
-/* This pushes the footer to the very bottom */
 main {
   flex: 1; 
   display: flex;

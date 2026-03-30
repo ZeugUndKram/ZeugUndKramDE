@@ -1,8 +1,8 @@
 <template>
   <div class="socials-container">
     <div class="header">
-      <h1>Connect with Me</h1>
-      <p>Follow my projects, videos, and hardware builds across the web.</p>
+      <h1>Meine Links</h1>
+      <p>Nein, OF ist nicht dabei</p>
     </div>
 
     <div class="socials-grid">
@@ -38,6 +38,8 @@
         </div>
         <div class="arrow">→</div>
       </a>
+
+      
     </div>
   </div>
 </template>
@@ -46,61 +48,85 @@
 .socials-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 80px 2rem;
-  min-height: 100vh;
+  padding: 2rem;
+  
+  /* Change min-height to full screen */
+  min-height: 100vh; 
+  
+  /* Pull the container up by the height of the header 
+     to counteract the spacer in Header.vue */
+  margin-top: -80px; 
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure the header spacer doesn't create extra white space */
+:deep(.header-spacer) {
+  display: none;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
+  width: 100%;
 }
 
 h1 {
   font-family: var(--font-header);
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 10vw, 3.5rem);
   font-weight: 800;
   color: var(--brand-green);
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .header p {
   color: #888;
   font-size: 1.1rem;
+  max-width: 450px;
+  margin: 0 auto;
 }
 
 .socials-grid {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 500px; /* Limits width so it looks like a clean list */
 }
 
 .social-card {
   display: flex;
   align-items: center;
-  padding: 1.5rem 2rem;
+  padding: 1.2rem 2rem;
   background: #1a1a1a;
-  border: 1px solid #333;
-  border-radius: 20px;
+  border: 1px solid #222;
+  border-radius: 16px;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
+  width: 100%;
 }
 
 .social-card:hover {
-  transform: translateX(10px);
-  border-color: #555;
-  background: #222;
+  transform: scale(1.02); /* Slight pop instead of slide */
+  border-color: var(--brand-green);
+  background: #1f1f1f;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .icon-box {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 2rem;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
 }
 
 .icon-box svg {
@@ -109,22 +135,23 @@ h1 {
 }
 
 .info h2 {
-  font-family: var(--font-header);
+  font-family: 'Exo', sans-serif;
   color: #fff;
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .info p {
-  color: #888;
-  margin: 0.2rem 0 0;
-  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+  font-size: 0.85rem;
 }
 
 .arrow {
   margin-left: auto;
-  font-size: 1.5rem;
-  color: #444;
+  font-size: 1.2rem;
+  color: #333;
   transition: 0.3s;
 }
 
@@ -133,25 +160,23 @@ h1 {
   transform: translateX(5px);
 }
 
-/* Specific Brand Colors on Hover */
-.youtube:hover { box-shadow: -5px 0 0 #FF0000; }
-.youtube:hover .icon-box { color: #FF0000; }
-
-.tiktok:hover { box-shadow: -5px 0 0 #00f2ea; }
-.tiktok:hover .icon-box { color: #fe2c55; filter: drop-shadow(2px 0 0 #00f2ea); }
-
-.tindie:hover { box-shadow: -5px 0 0 #ffaa00; }
-.tindie:hover .icon-box { color: #ffaa00; }
+/* Hover Accent Borders */
+.youtube:hover { border-left: 4px solid #FF0000; }
+.tiktok:hover { border-left: 4px solid #fe2c55; }
+.tindie:hover { border-left: 4px solid #ffaa00; }
 
 @media (max-width: 600px) {
+  .socials-container {
+    padding: 1rem;
+    min-height: calc(100vh - 80px);
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+
   .social-card {
-    padding: 1.2rem;
+    padding: 1rem 1.5rem;
   }
-  .icon-box {
-    width: 40px;
-    height: 40px;
-    margin-right: 1.2rem;
-  }
-  h1 { font-size: 2.2rem; }
 }
 </style>

@@ -89,7 +89,6 @@ onUnmounted(() => {
   width: 100%;
   background-color: rgba(18, 18, 18, 0.98);
   backdrop-filter: blur(15px);
-  border-bottom: 1px solid #222;
   padding: 1.2rem 0;
   z-index: 3000;
 }

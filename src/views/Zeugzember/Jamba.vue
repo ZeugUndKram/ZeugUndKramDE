@@ -188,7 +188,7 @@ const undo = () => {
 <template>
   <div class="esc-container">
     <div v-if="step === 'intro'" class="setup-card">
-      <h1>Germany ESC Ranker</h1>
+      <h1>Jamba Ranker</h1>
       <p>Wähle deine Ära und finde deinen Favoriten.</p>
       
       <div class="range-controls">
