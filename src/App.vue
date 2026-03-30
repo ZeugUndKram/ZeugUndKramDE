@@ -1,47 +1,112 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import SiteHeader from './components/Header.vue'
+import SiteFooter from './components/Footer.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div class="app-wrapper">
+    <SiteHeader />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+    <main class="landing-page">
+      <section class="hero">
+        <h1>Willkommen bei <span class="highlight">Zeug & Kram</span></h1>
+        <p>Your shop for everything and anything. Built with speed and precision.</p>
+        <div class="actions">
+          <button class="btn-primary">Entdecken</button>
+          <button class="btn-secondary">Mehr erfahren</button>
+        </div>
+      </section>
+    </main>
 
-  <main>
-    <TheWelcome />
-  </main>
+    <SiteFooter />
+  </div>
 </template>
 
-<style scoped>
-header {
+<style>
+/* Global Styles */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
+  color-scheme: light;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+body {
+  margin: 0;
+  display: flex;
+  place-content: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+#app {
+  width: 100%;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Keeps footer at bottom */
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.landing-page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+}
+
+.hero {
+  text-align: center;
+  max-width: 800px;
+}
+
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.highlight {
+  color: #42b883;
+}
+
+p {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 2.5rem;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+button {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+.btn-primary {
+  background-color: #42b883;
+  color: white;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #2c3e50;
+  border: 2px solid #2c3e50;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 </style>
