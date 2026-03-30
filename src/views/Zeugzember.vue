@@ -27,7 +27,7 @@
   margin: 0;
   /* Reduced padding-top so it starts closer to header, 
      increased side padding for a 'gallery' margin */
-  padding: 120px 4rem 5rem; 
+  padding: 30px 4rem 5rem; 
   min-height: 100vh;
   box-sizing: border-box;
 }

@@ -39,9 +39,6 @@
       </div>
 
     </div>
-    <div class="copyright">
-      &copy; 2026 Zeug & Kram
-    </div>
   </footer>
 </template>
 

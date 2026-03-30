@@ -68,7 +68,7 @@
 .legal-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 150px 2rem 8rem; /* Space for the header */
+  padding: 50px 2rem 8rem; /* Space for the header */
   line-height: 1.8;
   color: #ccc;
   font-family: var(--font-body, 'Varela Round', sans-serif);
