@@ -7,7 +7,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 // https://vite.dev/config/
 export default defineConfig({
   // This ensures the site loads correctly at vikdo.github.io/zeugundkramde/
-  base: '/zeugundkramde/', 
+  base: '/', 
   plugins: [
     vue(),
     vueDevTools(),
