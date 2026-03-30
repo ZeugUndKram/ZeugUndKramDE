@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
 
+# Fix for the deprecation: Force GitHub Actions to use Node 24
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: read
   pages: write
@@ -22,7 +26,8 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # Updated from 20 to 22 (Current stable LTS in 2026)
+          node-version: 22
           cache: 'npm'
 
       - name: Install and Build
