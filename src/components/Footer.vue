@@ -1,115 +1,107 @@
-<script setup lang="ts">
-const currentYear = new Date().getFullYear();
-</script>
-
 <template>
   <footer class="footer">
-    <div class="footer-container">
+    <div class="footer-content">
       
-      <div class="footer-col brand-col">
+      <div class="footer-col brand">
         <img src="/images/ZeugUndKramFlach.png" alt="Logo" class="footer-logo" />
-        <p class="brand-text">
-          Wir machen Digital einfach.<br>
-          Websites & Apps für Unternehmen mit Ambitionen.
-        </p>
-        <a href="https://status.zeugundkram.de" target="_blank" class="status-btn">
-          Zur Status Webseite <span class="icon">↗</span>
-        </a>
+        <p class="brand-text">Wir machen Digital einfach.<br>Websites & Apps für Unternehmen.</p>
+        <a href="#" class="status-btn">Zur Status Webseite ↗</a>
       </div>
 
       <div class="footer-col">
-        <h3>Leistungen</h3>
+        <h4>Leistungen</h4>
         <ul>
           <li><a href="#">Entwicklung</a></li>
-          <li><a href="#">Hosting und Betrieb</a></li>
-          <li><a href="#">Weiterentwicklung</a></li>
+          <li><a href="#">Hosting</a></li>
+          <li><a href="#">Betrieb</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h3>Quick Links</h3>
+        <h4>Quick Links</h4>
         <ul>
           <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Über uns</a></li>
           <li><a href="#">Datenschutz</a></li>
           <li><a href="#">Impressum</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h3>Kontakt</h3>
-        <ul>
-          <li><a href="#">Kontaktformular & Adressen</a></li>
-          <li><a href="mailto:hello@zeugundkram.de" class="email-link">📧 hello@zeugundkram.de</a></li>
-        </ul>
-        <div class="social-icons">
-          <a href="#" class="social-icon">In</a>
-          <a href="#" class="social-icon">Ig</a>
-          <a href="#" class="social-icon">Fb</a>
+        <h4>Kontakt</h4>
+        <p class="email-text">zeugkramdinge@gmail.com</p>
+        <div class="socials">
+          <span class="soc">In</span>
+          <span class="soc">Ig</span>
+          <span class="soc">Fb</span>
         </div>
       </div>
 
     </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; {{ currentYear }} Zeug & Kram</p>
+    <div class="copyright">
+      &copy; 2026 Zeug & Kram
     </div>
   </footer>
 </template>
 
 <style scoped>
 .footer {
-  background-color: #1a1a1a; /* Dark background like the image */
-  color: #ffffff;
-  padding: 4rem 2rem 1rem 2rem;
-  font-family: sans-serif;
+  width: 100%;
+  background-color: #000;
+  padding: 5rem 0 2rem 0;
+  border-top: 1px solid #111;
+  /* Ensure the footer uses Varela Round as base */
+  font-family: 'Varela Round', sans-serif;
 }
 
-.footer-container {
-  max-width: 1200px;
+.footer-content {
+  width: 90%;
+  max-width: 1600px;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap; /* Allows wrapping on mobile */
-  gap: 2rem;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3rem;
 }
 
 .footer-col {
   flex: 1;
-  min-width: 200px; /* Ensures columns don't get too thin */
+  min-width: 200px;
 }
 
-/* Brand Column */
-.brand-col {
-  flex: 1.5; /* Give the logo column a bit more space */
+.brand {
+  flex: 2;
 }
 
 .footer-logo {
-  height: 40px;
+  height: 35px;
   margin-bottom: 1.5rem;
-  filter: brightness(0) invert(1); /* Makes a dark logo white if needed */
 }
 
 .brand-text {
+  color: #aaa;
   line-height: 1.6;
-  color: #b3b3b3;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
 }
 
-/* Headers */
-h3 {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: #ffffff;
+.email-text {
+  color: #89BD8B; /* Your Brand Green */
+  font-family: 'Exo', sans-serif; /* Tech feel for email */
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
-/* Links & Lists */
+h4 {
+  font-family: 'Exo', sans-serif; /* Tech feel for headings */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
 ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 li {
@@ -117,72 +109,68 @@ li {
 }
 
 a {
-  color: #b3b3b3;
+  color: #888;
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.2s;
+  transition: all 0.2s ease;
+  background: transparent !important; /* Fix for hover boxes */
 }
 
 a:hover {
-  color: #ffffff;
+  color: #89BD8B; /* Turn green on hover */
 }
 
-/* Status Button */
 .status-btn {
   display: inline-block;
-  background-color: #4e5d6c;
-  color: white;
+  font-family: 'Exo', sans-serif;
   padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  transition: background 0.2s;
+  background: #1a1a1a;
+  color: #eee;
+  border-radius: 6px;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
 }
 
 .status-btn:hover {
-  background-color: #5d6d7e;
+  border-color: #89BD8B;
+  color: #89BD8B;
+  transform: translateY(-2px);
 }
 
-/* Socials */
-.social-icons {
+.socials {
   display: flex;
-  gap: 1rem;
+  gap: 10px;
   margin-top: 1rem;
 }
 
-.social-icon {
-  width: 32px;
-  height: 32px;
-  background: #333;
+.soc {
+  width: 35px;
+  height: 35px;
+  background: #111;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  font-size: 0.8rem;
-  font-weight: bold;
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 4rem;
-  border-top: 1px solid #333;
-  padding-top: 1rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
   color: #666;
-  font-size: 0.8rem;
+  font-family: 'Exo', sans-serif;
+  transition: color 0.2s;
 }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column; /* Stacks columns on top of each other */
-    text-align: left;
-  }
-  
-  .footer-col {
-    width: 100%;
-  }
+.soc:hover {
+  color: #89BD8B;
+}
 
-  .brand-col {
-    margin-bottom: 2rem;
-  }
+.copyright {
+  text-align: center;
+  margin-top: 5rem;
+  color: #333;
+  font-size: 0.8rem;
+  border-top: 1px solid #0a0a0a;
+  padding-top: 2rem;
+  font-family: 'Exo', sans-serif;
 }
 </style>
