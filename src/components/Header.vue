@@ -51,6 +51,7 @@ onUnmounted(() => {
         <a href="#leistungen">Creations</a>
         <a href="/zeugzember">Zeugzember</a>
         <a href="/socials">Socials</a>
+        <a href="/guestbook">Gästebuch</a>
       </nav>
 
       <button 

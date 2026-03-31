@@ -1,6 +1,17 @@
 <script setup lang="ts">
 import SiteHeader from './components/Header.vue'
 import SiteFooter from './components/Footer.vue'
+import { onMounted } from 'vue'
+import { supabase } from './supabase' // Ensure your supabase client is imported
+
+onMounted(async () => {
+  // Use the function we just created in the SQL editor
+  const { error } = await supabase.rpc('increment_views', { 
+    target_name: 'total_views' 
+  })
+  
+  if (error) console.error('Error incrementing views:', error)
+})
 </script>
 
 <template>

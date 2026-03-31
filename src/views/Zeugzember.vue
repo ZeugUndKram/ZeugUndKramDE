@@ -4,16 +4,16 @@
       <component
         v-for="n in 12"
         :key="n"
-        :is="[1, 2].includes(n) ? 'router-link' : 'div'"
-        :to="n === 1 ? '/zeugzember/esc' : n === 2 ? '/zeugzember/jamba' : null"
+        :is="[1, 2, 3].includes(n) ? 'router-link' : 'div'"
+        :to="n === 1 ? '/zeugzember/esc' : n === 2 ? '/zeugzember/jamba' : n === 3 ? '/zeugzember/oldweb' : null"
         class="project-block"
-        :class="{ 'is-link': [1, 2].includes(n) }"
+        :class="{ 'is-link': [1, 2, 3].includes(n) }"
       >
         <div class="block-content">
           <span class="day-number">{{ n.toString().padStart(2, '0') }}</span>
           <h3>Projekt {{ n }}</h3>
           <p>
-            {{ n === 1 ? 'ESC Discovery' : n === 2 ? 'Jamba Sparabo' : 'Coming soon...' }}
+            {{ n === 1 ? 'ESC Discovery' : n === 2 ? 'Jamba Sparabo' : n === 3 ? 'Old Web' : 'Coming soon...' }}
           </p>
         </div>
       </component>

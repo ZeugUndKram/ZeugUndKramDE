@@ -28,6 +28,16 @@ const routes = [
     component: () => import('../views/Zeugzember/Jamba.vue')
   },
   {
+    path: '/zeugzember/OldWeb',
+    name: 'oldweb',
+    component: () => import('../views/Zeugzember/OldWeb.vue')
+  },
+  {
+    path: '/guestbook',
+    name: 'guestbook',
+    component: () => import('../views/Guestbook.vue')
+  },
+  {
     path: '/privacy',
     name: 'privacy',
     component: () => import('../views/Privacy.vue')

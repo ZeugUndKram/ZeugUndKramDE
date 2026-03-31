@@ -1,10 +1,45 @@
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { supabase } from '../supabase' // Double check this path points to your supabase.ts file
+
+const viewCount = ref<number | string>('...')
+
+const fetchViews = async () => {
+  try {
+    // We select the 'count' column where 'counter_name' matches 'total_views'
+    const { data, error } = await supabase
+      .from('site-stats')
+      .select('count')
+      .eq('counter_name', 'total_views')
+      .single()
+
+    if (error) throw error
+    
+    if (data) {
+      viewCount.value = data.count
+    }
+  } catch (err) {
+    console.error('Error fetching views:', err)
+    viewCount.value = '?' // Fallback if database fails
+  }
+}
+
+onMounted(() => {
+  fetchViews()
+})
+</script>
+
 <template>
   <footer class="footer">
     <div class="footer-content">
       
       <div class="footer-col brand">
         <img src="/images/ZeugUndKramFlach.png" alt="Logo" class="footer-logo" />
-        <p class="brand-text">Einfach Dinge.<br>Digitales aus Leidenschaft.</p>
+        
+        <p class="brand-text visitor-counter">
+          Seitenaufrufe: <span class="count-number">{{ viewCount }}</span>
+        </p>
+        
         <a href="#" class="status-btn">Zur Status Webseite ↗</a>
       </div>
 
@@ -56,7 +91,7 @@
 .footer {
   width: 100%;
   background-color: #000;
-  padding: 6rem 0 0 0; /* No bottom padding here because copyright has it */
+  padding: 6rem 0 0 0;
   border-top: 1px solid #111;
   font-family: 'Varela Round', sans-serif;
 }
@@ -88,9 +123,25 @@
 }
 
 .footer-logo {
-  height: 45px; /* Neater size */
+  height: 45px;
   width: auto;
   margin-bottom: 2rem;
+}
+
+/* Visitor Counter Styles */
+.visitor-counter {
+  font-family: 'Exo', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.count-number {
+  color: var(--brand-green);
+  font-weight: 900;
+  margin-left: 5px;
 }
 
 .brand-text {
