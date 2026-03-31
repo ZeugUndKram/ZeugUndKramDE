@@ -33,6 +33,11 @@ const routes = [
     component: () => import('../views/Zeugzember/OldWeb.vue')
   },
   {
+    path: '/zeugzember/Demakes',
+    name: 'demakes',
+    component: () => import('../views/Zeugzember/Demakes.vue')
+  },
+  {
     path: '/guestbook',
     name: 'guestbook',
     component: () => import('../views/Guestbook.vue')

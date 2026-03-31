@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { supabase } from '../supabase' // Double check this path points to your supabase.ts file
+import { supabase } from '../supabase' 
 
 const viewCount = ref<number | string>('...')
 
 const fetchViews = async () => {
   try {
-    // We select the 'count' column where 'counter_name' matches 'total_views'
     const { data, error } = await supabase
       .from('site-stats')
       .select('count')
@@ -20,7 +19,7 @@ const fetchViews = async () => {
     }
   } catch (err) {
     console.error('Error fetching views:', err)
-    viewCount.value = '?' // Fallback if database fails
+    viewCount.value = '?' 
   }
 }
 
@@ -39,26 +38,24 @@ onMounted(() => {
         <p class="brand-text visitor-counter">
           Seitenaufrufe: <span class="count-number">{{ viewCount }}</span>
         </p>
-        
-        <a href="#" class="status-btn">Zur Status Webseite ↗</a>
       </div>
 
       <div class="links-group">
         <div class="footer-col">
           <h4>Leistungen</h4>
           <ul>
-            <li><a href="#">Entwicklung</a></li>
-            <li><a href="#">Hosting</a></li>
-            <li><a href="#">Betrieb</a></li>
+            <li><a href="#" class="footer-link">Entwicklung</a></li>
+            <li><a href="#" class="footer-link">Hosting</a></li>
+            <li><a href="#" class="footer-link">Betrieb</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="/privacy">Datenschutz</a></li>
-            <li><router-link to="/legal">Impressum</router-link></li>
+            <li><a href="#" class="footer-link">Portfolio</a></li>
+            <li><a href="/privacy" class="footer-link">Datenschutz</a></li>
+            <li><router-link to="/legal" class="footer-link">Impressum</router-link></li>
           </ul>
         </div>
 
@@ -123,12 +120,11 @@ onMounted(() => {
 }
 
 .footer-logo {
-  height: 45px;
+  height: 55px;
   width: auto;
   margin-bottom: 2rem;
 }
 
-/* Visitor Counter Styles */
 .visitor-counter {
   font-family: 'Exo', sans-serif;
   letter-spacing: 1px;
@@ -139,16 +135,9 @@ onMounted(() => {
 }
 
 .count-number {
-  color: var(--brand-green);
+  color: #89BD8B; 
   font-weight: 900;
   margin-left: 5px;
-}
-
-.brand-text {
-  color: #aaa;
-  line-height: 1.8;
-  font-size: 1.05rem;
-  margin-bottom: 1.5rem;
 }
 
 .email-text {
@@ -177,33 +166,21 @@ li {
   margin-bottom: 1rem;
 }
 
-a {
+/* Explicit fix for the "Box" issue */
+.footer-link {
   color: #888;
   text-decoration: none;
   transition: color 0.2s ease;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
 }
 
-a:hover {
-  color: #89BD8B;
-}
-
-.status-btn {
-  display: inline-block;
-  font-family: 'Exo', sans-serif;
-  padding: 0.7rem 1.4rem;
-  background: #111;
-  color: #eee;
-  border-radius: 8px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-decoration: none;
-  border: 1px solid #222;
-  transition: all 0.3s ease;
-}
-
-.status-btn:hover {
-  border-color: #89BD8B;
-  color: #89BD8B;
+.footer-link:hover {
+  color: #89BD8B !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .socials {
@@ -230,9 +207,10 @@ a:hover {
 }
 
 .soc:hover {
-  color: #89BD8B;
-  border-color: #89BD8B;
+  color: #89BD8B; 
   transform: translateY(-3px);
+  border-color: #333;
+  background: #111 !important; /* Ensures the circle doesn't change color */
 }
 
 .copyright {
