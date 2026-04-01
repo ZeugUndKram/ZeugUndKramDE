@@ -9,7 +9,7 @@ interface Contestant {
   audio: string;
 }
 
-const ALL_CONTESTANTS: Contestant[] = [
+const GERMAN_CONTESTANTS: Contestant[] = [
   { "name": "Im Wartesaal zum großen Glück", "artist": "Walter Andreas Schwarz", "year": 1956, "image": "https://static.wikia.nocookie.net/eurosong-contest/images/3/3b/ImWartesaalzumgro%C3%9FenGl%C3%BCck.jpg/revision/latest/thumbnail/width/360/height/450?cb=20150821113902", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/24/fc/4a/24fc4a36-cbe3-7ed0-068b-4ba387108994/mzaf_17473719529627375730.plus.aac.ep.m4a" },
     { "name": "So geht das jede Nacht", "artist": "Freddy Quinn", "year": 1956, "image": "https://upload.wikimedia.org/wikipedia/de/b/bd/Polydor_NH_23_223_B_Freddy_%28Quinn%29_001.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/76/67/f8/7667f8fd-acef-49e5-959e-7d72a02166ee/mzaf_12355978826715421118.plus.aac.p.m4a" },
     { "name": "Telefon, Telefon", "artist": "Margot Hielscher", "year": 1957, "image": "https://media.hitparade.ch/cover/800/margot_hielscher-telefon_telefon_s.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e1/b8/c0/e1b8c006-fadc-1904-3a6a-b1c1b9f01dfa/mzaf_5043056250600607488.plus.aac.ep.m4a" },
@@ -84,7 +84,83 @@ const ALL_CONTESTANTS: Contestant[] = [
 
 ];
 
+const WINNER_CONTESTANTS: Contestant[] = [
+  { "name": "Wasted Love", "artist": "JJ", "year": 2025, "image": "https://i.scdn.co/image/ab67616d0000b2737de5fab535418ab314d8f2d7", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6a/5d/cb/6a5dcb50-cb81-9e3a-5b30-9db534cf2250/mzaf_11144356961687676260.plus.aac.ep.m4a" },
+  { "name": "The Code", "artist": "Nemo", "year": 2024, "image": "https://m.media-amazon.com/images/I/31w4JVKju2L._UXNaN_FMjpg_QL85_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e1/fc/bb/e1fcbbdf-f2f6-af80-a476-65a07b48a653/mzaf_15771301684790254493.plus.aac.ep.m4a" },
+  { "name": "Tattoo", "artist": "Loreen", "year": 2023, "image": "https://i.scdn.co/image/ab67616d0000b2732b0ba87db609976eee193bd6", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5a/dd/6c/5add6cda-a867-6ed7-44f7-5f1fb84e2273/mzaf_12761850526582729829.plus.aac.ep.m4a" },
+  { "name": "Stefania", "artist": "Kalush Orchestra", "year": 2022, "image": "https://m.media-amazon.com/images/I/81cmazNRrfL._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/5d/49/39/5d493922-4c43-256f-2b2e-0211bb951be7/mzaf_16771858307219663041.plus.aac.ep.m4a" },
+  { "name": "Zitti e buoni", "artist": "Måneskin", "year": 2021, "image": "https://cdn-images.dzcdn.net/images/cover/73ccbda9c7cf13e45cec4e8bf6cecd4f/0x1900-000000-80-0-0.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/83/5a/78/835a7827-3ad4-d12d-2921-204bae6f5c9e/mzaf_9324186145636776411.plus.aac.ep.m4a" },
+  { "name": "Arcade", "artist": "Duncan Laurence", "year": 2019, "image": "https://cdn-images.dzcdn.net/images/cover/d6aa4d7fa64103b0532290af61a8fe67/1900x1900-000000-80-0-0.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/15/b3/cc/15b3ccaa-677f-28b5-3510-04061ed18182/mzaf_6658041100250268898.plus.aac.ep.m4a" },
+  { "name": "Toy", "artist": "Netta", "year": 2018, "image": "https://i.scdn.co/image/ab67616d0000b273fc1e6aac4f02c6864d7a5f90", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e3/a1/18/e3a118da-9f61-dc80-461f-20918caaea1b/mzaf_2028604709910015347.plus.aac.ep.m4a" },
+  { "name": "Amar pelos dois", "artist": "Salvador Sobral", "year": 2017, "image": "https://m.media-amazon.com/images/I/51f8k4AlVZL._UXNaN_FMjpg_QL85_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b1/22/7c/b1227c04-9a77-f09e-b76d-d718086f214e/mzaf_13693568115535938919.plus.aac.ep.m4a" },
+  { "name": "1944", "artist": "Jamala", "year": 2016, "image": "https://m.media-amazon.com/images/I/419HP53treL._UXNaN_FMjpg_QL85_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview123/v4/97/78/1d/97781de1-b864-771a-8928-fea43e6b2025/mzaf_16374615363200442881.plus.aac.ep.m4a" },
+  { "name": "Heroes", "artist": "Måns Zelmerlöw", "year": 2015, "image": "https://media.hitparade.ch/cover/800/maans_zelmerloew-heroes_s.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f7/81/ff/f781ffc0-9de1-4e00-7b15-14c4c9830893/mzaf_13260917083681951307.plus.aac.ep.m4a" },
+  { "name": "Rise Like a Phoenix", "artist": "Conchita Wurst", "year": 2014, "image": "https://i.scdn.co/image/ab67616d0000b27331fadd05a8e7ad1c2a2f9c61", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/88/93/1f/88931ff3-4ad3-5a82-172e-7f8f011b63f2/mzaf_15726431587997680356.plus.aac.ep.m4a" },
+  { "name": "Only Teardrops", "artist": "Emmelie de Forest", "year": 2013, "image": "https://m.media-amazon.com/images/I/41+1sI19RGL._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/04/e5/1f/04e51f7a-75cc-f6b1-bbaa-20116dbd26a7/mzaf_16231627003997458719.plus.aac.ep.m4a" },
+  { "name": "Euphoria", "artist": "Loreen", "year": 2012, "image": "https://cdn-images.dzcdn.net/images/cover/a53f5533391cdebbdfd48e9d6cece985/0x1900-000000-80-0-0.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ff/f3/20/fff32034-87f7-f2fa-1679-7a907aab2168/mzaf_8942140623204449396.plus.aac.ep.m4a" },
+  { "name": "Running Scared", "artist": "Ell & Nikki", "year": 2011, "image": "https://i.scdn.co/image/ab67616d0000b273003c233b90b790d7c4dda21c", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6d/a4/68/6da468af-67c4-e36f-3e89-7b6af5503bca/mzaf_8515695012092340296.plus.aac.ep.m4a" },
+  { "name": "Satellite", "artist": "Lena", "year": 2010, "image": "https://upload.wikimedia.org/wikipedia/en/4/42/Satelliteeuropeancover.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/62/bb/78/62bb78c2-16e6-f68e-4b99-fcdf3ee5e596/mzaf_4821521866105654340.plus.aac.ep.m4a" },
+  { "name": "Fairytale", "artist": "Alexander Rybak", "year": 2009, "image": "https://i.scdn.co/image/ab67616d0000b2731f4dd0b239e64dec4154a467", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/3d/73/39/3d733935-9635-ad18-67f3-bdc79ee33ef3/mzaf_591558662604624355.plus.aac.ep.m4a" },
+  { "name": "Believe", "artist": "Dima Bilan", "year": 2008, "image": "https://i.scdn.co/image/ab67616d0000b273e4d6136ac6dd3b786080a10f", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/21/76/1d/21761df7-0731-72e9-36d3-e3ef20b725e9/mzaf_3583625883043942948.plus.aac.ep.m4a" },
+  { "name": "Molitva", "artist": "Marija Šerifović", "year": 2007, "image": "https://i.scdn.co/image/ab67616d0000b2732f77b1207a67c613913c9b9c", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/15/a0/12/15a012d3-b9f4-df91-d366-ce80677951c0/mzaf_7093614234828718976.plus.aac.ep.m4a" },
+  { "name": "Hard Rock Hallelujah", "artist": "Lordi", "year": 2006, "image": "https://i.scdn.co/image/ab67616d0000b273b427a1bd44267a50dbe0a24f", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c7/f8/b2/c7f8b299-abbc-80aa-49b1-813feb2442a6/mzaf_12251564392354923893.plus.aac.ep.m4a" },
+  { "name": "My Number One", "artist": "Helena Paparizou", "year": 2005, "image": "https://m.media-amazon.com/images/I/51JnkqLjdkL._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/ec/7b/68/ec7b6876-4670-dc82-89a2-b9817a376f43/mzaf_7398790623029424006.plus.aac.ep.m4a" },
+  { "name": "Wild Dances", "artist": "Ruslana", "year": 2004, "image": "https://i.scdn.co/image/ab67616d0000b273f3310238d06afe3898fa0fdb", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/64/7e/b6/647eb6f8-eb02-c97d-41c8-4659560ab342/mzaf_18285765326735565314.plus.aac.ep.m4a" },
+  { "name": "Everyway That I Can", "artist": "Sertab Erener", "year": 2003, "image": "https://m.media-amazon.com/images/I/51fV7LOZ6qL._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/0b/aa/e6/0baae67a-dd62-09ef-603a-0601facc066b/mzaf_12829262217266249772.plus.aac.ep.m4a" },
+  { "name": "I Wanna", "artist": "Marie N", "year": 2002, "image": "https://i.scdn.co/image/ab67616d0000b273382193f5e457873ea8421806", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f6/99/47/f6994711-2548-e3c8-cd65-dbd92e40c164/mzaf_13830281493428119251.plus.aac.ep.m4a" },
+  { "name": "Everybody", "artist": "Tanel Padar & Dave Benton", "year": 2001, "image": "https://osta.img-bcg.eu/item/13/1916/101311916.jpg", "audio": "https://streamd.hitparade.ch/audio/0030000/0039404.mp3" },
+  { "name": "Fly on the Wings of Love", "artist": "Olsen Brothers", "year": 2000, "image": "https://i.scdn.co/image/ab67616d0000b2736d965e893ab12cbc05ef7d81", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/db/4d/b8/db4db80a-b5e5-9658-4bf8-4326729d7b09/mzaf_6931662159270121094.plus.aac.ep.m4a" },
+  { "name": "Take Me to Your Heaven", "artist": "Charlotte Nilsson", "year": 1999, "image": "https://i.scdn.co/image/ab67616d0000b273bff0488fa1726b023856513e", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d3/f5/9c/d3f59c02-b3d5-6a4a-de82-19cf719c8d94/mzaf_312341167142909318.plus.aac.ep.m4a" },
+  { "name": "Diva", "artist": "Dana International", "year": 1998, "image": "https://media.hitparade.ch/cover/800/dana_international-diva_s.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9a/55/c4/9a55c408-377d-17b9-544a-35bf5c68e62c/mzaf_5614694066295954355.plus.aac.ep.m4a" },
+  { "name": "Love Shine a Light", "artist": "Katrina and the Waves", "year": 1997, "image": "https://m.media-amazon.com/images/I/71B7NT5x6XL._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/7e/88/8b/7e888bb5-2f01-fe2a-2a34-bc558aa5face/mzaf_2139350226037017256.plus.aac.ep.m4a" },
+  { "name": "The Voice", "artist": "Eimear Quinn", "year": 1996, "image": "https://i.scdn.co/image/ab67616d0000b27326806837a4631e1170ec0218", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/97/4a/4e/974a4ed6-1c8e-a53d-c97b-0d875cc200f7/mzaf_17489155732465181512.plus.aac.ep.m4a" },
+  { "name": "Nocturne", "artist": "Secret Garden", "year": 1995, "image": "https://upload.wikimedia.org/wikipedia/en/1/14/Nocturne_%28Secret_Garden_song%29.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7f/b0/72/7fb0722d-b6fb-9689-adfb-cb834d34063c/mzaf_2545893764777566415.plus.aac.ep.m4a" },
+  { "name": "Rock 'n' Roll Kids", "artist": "Paul Harrington & Charlie McGettigan", "year": 1994, "image": "https://img.sheetmusic.direct/catalogue/product/smd_143249/large.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/53/b5/09/53b50970-ae6b-41e4-185c-fc076e0e3176/mzaf_6483659374376520574.plus.aac.ep.m4a" },
+  { "name": "In Your Eyes", "artist": "Niamh Kavanagh", "year": 1993, "image": "https://m.media-amazon.com/images/I/51rAJN9UahL._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bc/c3/e6/bcc3e698-cfab-a4ad-3095-c202fb372fd3/mzaf_7366564195694655133.plus.aac.ep.m4a" },
+  { "name": "Why Me?", "artist": "Linda Martin", "year": 1992, "image": "https://m.media-amazon.com/images/I/61T+FJPAyqL._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/da/2d/98/da2d989a-5270-92f1-7a1b-d9aec86c1d8a/mzaf_9470766431368685818.plus.aac.ep.m4a" },
+  { "name": "Fångad av en stormvind", "artist": "Carola", "year": 1991, "image": "https://upload.wikimedia.org/wikipedia/en/0/04/F%C3%A5ngad_av_en_stormvind.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/76/e4/c2/76e4c257-d053-5feb-c5b1-f8c74324280c/mzaf_13899735770710337976.plus.aac.ep.m4a" },
+  { "name": "Insieme: 1992", "artist": "Toto Cutugno", "year": 1990, "image": "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Insieme_1992.jpg/250px-Insieme_1992.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a3/77/e7/a377e7f6-316e-06c7-1167-c93db1d4b19c/mzaf_6361239865942788540.plus.aac.ep.m4a" },
+  { "name": "Rock Me", "artist": "Riva", "year": 1989, "image": "https://m.media-amazon.com/images/I/51rTYyv6s0L._UXNaN_FMjpg_QL85_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/5e/20/42/5e20422e-12e7-78f9-5234-c3ea8f299895/mzaf_4189820922499163121.plus.aac.ep.m4a" },
+  { "name": "Ne partez pas sans moi", "artist": "Céline Dion", "year": 1988, "image": "https://m.media-amazon.com/images/I/815Kg5hrZOL._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/75/bd/ed/75bded3d-dcab-ebef-7f97-57b5db6546e7/mzaf_7943853906652688544.plus.aac.ep.m4a" },
+  { "name": "Hold Me Now", "artist": "Johnny Logan", "year": 1987, "image": "https://m.media-amazon.com/images/I/51scld4ea8L._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/ab/41/83/ab4183d8-eeda-5b96-bc0b-e7ea05e16862/mzaf_11448974681307843136.plus.aac.ep.m4a" },
+  { "name": "J'aime la vie", "artist": "Sandra Kim", "year": 1986, "image": "https://m.media-amazon.com/images/I/91bV+0lDPWL._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e1/91/73/e19173f4-88c1-650b-92e6-49dee1e48874/mzaf_16316923288042957427.plus.aac.ep.m4a" },
+  { "name": "La det swinge", "artist": "Bobbysocks!", "year": 1985, "image": "https://upload.wikimedia.org/wikipedia/en/9/9e/La_det_swinge.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/e4/49/45/e4494504-c919-19f1-3756-84e4e157c9c5/mzaf_5025945094122223094.plus.aac.ep.m4a" },
+  { "name": "Diggi-Loo Diggi-Ley", "artist": "Herreys", "year": 1984, "image": "https://upload.wikimedia.org/wikipedia/en/a/a0/Herreys_-_Diggi-Loo_Diggi-Ley.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/57/5f/6d/575f6d8a-7725-9f48-3176-bc9dd3ecbdae/mzaf_124566953022816392.plus.aac.ep.m4a" },
+  { "name": "Si la vie est cadeau", "artist": "Corinne Hermès", "year": 1983, "image": "https://m.media-amazon.com/images/I/91+XwY1xx8L._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/e0/4b/19/e04b19c6-9668-29f8-51e5-ca52a71e3b1d/mzaf_14557032103347549204.plus.aac.ep.m4a" },
+  { "name": "Ein bißchen Frieden", "artist": "Nicole", "year": 1982, "image": "https://i.scdn.co/image/ab67616d0000b2736b8df8068d39d3d0198eca80", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/28/d4/b9/28d4b9bc-20bd-325a-8602-ce008cf417ea/mzaf_102254327236731367.plus.aac.ep.m4a" },
+  { "name": "Making Your Mind Up", "artist": "Bucks Fizz", "year": 1981, "image": "https://m.media-amazon.com/images/I/61fzPmD3YxL._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/40/3a/45/403a45f9-4e0a-e6da-28a9-409d9b7df975/mzaf_4049295194451206954.plus.aac.ep.m4a" },
+  { "name": "What's Another Year", "artist": "Johnny Logan", "year": 1980, "image": "https://m.media-amazon.com/images/I/91QLWZDyuKL._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/78/1d/50/781d50d4-6eff-037d-1c8f-76086f8ce80f/mzaf_1755393254029129903.plus.aac.ep.m4a" },
+  { "name": "Hallelujah", "artist": "Gali Atari & Milk and Honey", "year": 1979, "image": "https://lastfm.freetls.fastly.net/i/u/500x500/946f116144e0fab93d83c375b96d2813.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/72/ac/9e/72ac9e03-3aa6-9c57-6ae8-7c6907e70e47/mzaf_12255271538612454228.plus.aac.ep.m4a" },
+  { "name": "A-Ba-Ni-Bi", "artist": "Izhar Cohen & the Alphabeta", "year": 1978, "image": "https://i.ebayimg.com/images/g/iF0AAOSw7SRcwG0F/s-l400.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/6c/0e/46/6c0e46af-5957-8343-cf62-703311a623e8/mzaf_8185078206507471663.plus.aac.ep.m4a" },
+  { "name": "L'oiseau et l'enfant", "artist": "Marie Myriam", "year": 1977, "image": "https://m.media-amazon.com/images/I/81VD3BjJ4CL._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fe/2d/cf/fe2dcf97-a8e0-1b17-fa3e-a869d3e7879c/mzaf_6063071287050692274.plus.aac.ep.m4a" },
+  { "name": "Save Your Kisses for Me", "artist": "Brotherhood of Man", "year": 1976, "image": "https://upload.wikimedia.org/wikipedia/en/8/82/UK1976Congratulations.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5d/ba/31/5dba3190-2d0c-9fbc-1709-9b23f32dd873/mzaf_16486452366378966260.plus.aac.ep.m4a" },
+  { "name": "Ding-a-dong", "artist": "Teach-In", "year": 1975, "image": "https://i.scdn.co/image/ab67616d0000b273a9d52907bc7581d052b74131", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/66/89/0c/66890cd0-270b-3b07-b7dd-5078dd3b399f/mzaf_6719169335503150168.plus.aac.p.m4a" },
+  { "name": "Waterloo", "artist": "ABBA", "year": 1974, "image": "https://m.media-amazon.com/images/I/61Mba2R4T0L._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f0/15/ee/f015ee0c-e661-ec0a-2d6c-aa1f8f4ad1e4/mzaf_15452140459757540488.plus.aac.ep.m4a" },
+  { "name": "Tu te reconnaîtras", "artist": "Anne-Marie David", "year": 1973, "image": "https://a2.cdn.hhv.de/items/images/generated/970x970/01310/1310210/1-anne-marie-david-tu-te-reconnaitras.webp", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/76/0b/9a/760b9a39-d54e-0fea-81cb-51ba0b5e4669/mzaf_11398604948242695741.plus.aac.ep.m4a" },
+  { "name": "Après toi", "artist": "Vicky Leandros", "year": 1972, "image": "https://media.senscritique.com/media/000007971187/0/Apres_toi_Single.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/53/92/4a/53924aa3-55a4-d0ae-688d-53e018e8de63/mzaf_7185463295298771273.plus.aac.ep.m4a" },
+  { "name": "Un banc, un arbre, une rue", "artist": "Séverine", "year": 1971, "image": "https://m.media-amazon.com/images/I/717iuvd+VUS._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/be/b5/4b/beb54b1f-9121-f207-1266-14bb2df33692/mzaf_4629469241160081187.plus.aac.ep.m4a" },
+  { "name": "All Kinds of Everything", "artist": "Dana", "year": 1970, "image": "https://m.media-amazon.com/images/I/91rPHa2erhL._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/5b/ef/fa/5beffac5-308b-ecc6-361c-5e7d3c8dc2c2/mzaf_10598707209114893805.plus.aac.ep.m4a" },
+  { "name": "Vivo cantando", "artist": "Salomé", "year": 1969, "image": "https://upload.wikimedia.org/wikipedia/en/b/b5/Salom%C3%A9_-_Vivo_cantando.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/07/07/c9/0707c9c9-b4df-e1e2-210e-17f11683e909/mzaf_8507533122816221187.plus.aac.p.m4a" },
+  { "name": "Boom Bang-a-Bang", "artist": "Lulu", "year": 1969, "image": "https://media.hitparade.ch/cover/800/lulu-boom_bang-a-bang_s.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e9/34/39/e934399b-cce6-b495-8de6-30df89d71e77/mzaf_8260807849557425605.plus.aac.p.m4a" },
+  { "name": "De troubadour", "artist": "Lenny Kuhr", "year": 1969, "image": "https://images.genius.com/820a3f939930759c2306aad3e0ad22e5.404x404x1.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/6b/d9/ea/6bd9ea05-b95e-2e8d-03fc-4b1d8aaaa786/mzaf_2217708826779175710.plus.aac.ep.m4a" },
+  { "name": "Un jour, un enfant", "artist": "Frida Boccara", "year": 1969, "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMCnH6Sn1qefalZmDFxnzKYQ1Cteijf9d55A&s", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/78/2f/85/782f85a5-f2ec-a47f-1614-03b519b370bb/mzaf_13815748970036547790.plus.aac.ep.m4a" },
+  { "name": "La, la, la", "artist": "Massiel", "year": 1968, "image": "https://upload.wikimedia.org/wikipedia/en/1/1a/Massiel_La%2C_la%2C_la.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/79/9b/86/799b86fc-7cab-0a77-7730-3ed0e14bfdb9/mzaf_4961109211463438386.plus.aac.ep.m4a" },
+  { "name": "Puppet on a String", "artist": "Sandie Shaw", "year": 1967, "image": "https://m.media-amazon.com/images/I/A17kRCGgbML._UF894,1000_QL80_.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/4b/74/8e/4b748ec3-a7cb-552b-bb84-0334844947df/mzaf_1730430191195773384.plus.aac.p.m4a" },
+  { "name": "Merci, Chérie", "artist": "Udo Jürgens", "year": 1966, "image": "https://upload.wikimedia.org/wikipedia/en/0/0e/Udo_J%C3%BCrgens_-_Merci%2C_Ch%C3%A9rie.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d6/f4/c2/d6f4c22c-412d-bc23-9015-7979a3431b7a/mzaf_9504934551000525467.plus.aac.ep.m4a" },
+  { "name": "Poupée de cire, poupée de son", "artist": "France Gall", "year": 1965, "image": "https://i.scdn.co/image/ab67616d0000b27357a0406e956dec2176a3e083", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/45/6f/d5/456fd52d-37dd-1395-541c-f00bc7f42847/mzaf_15113609904231100025.plus.aac.p.m4a" },
+  { "name": "Non ho l'età", "artist": "Gigliola Cinquetti", "year": 1964, "image": "https://m.media-amazon.com/images/I/71FOB4c14tL.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/0e/18/14/0e181439-d600-24ba-7bbc-063dc28dd8ce/mzaf_8953823765284930874.plus.aac.ep.m4a" },
+  { "name": "Dansevise", "artist": "Grethe & Jørgen Ingmann", "year": 1963, "image": "https://1265745076.rsc.cdn77.org/1024/jpg/12071-5d2480fd8c035.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ac/c7/72/acc772e7-1714-68d7-47f2-aba253365a8f/mzaf_17016121520977863086.plus.aac.ep.m4a" },
+  { "name": "Un premier amour", "artist": "Isabelle Aubret", "year": 1962, "image": "https://e.snmc.io/i/1200/s/e1337c601544ddf12510f3ca0007b73a/4354604", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/01/0f/f4/010ff4ac-6adf-1607-980a-097245f60d05/mzaf_11302056090786091262.plus.aac.ep.m4a" },
+  { "name": "Nous les amoureux", "artist": "Jean-Claude Pascal", "year": 1961, "image": "https://is1-ssl.mzstatic.com/image/thumb/Music/a3/c7/db/mzi.qccntiba.tif/600x600bf-60.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/fd/87/e3/fd87e36f-8281-58e3-c5bd-bc6123517329/mzaf_16987694766764604608.plus.aac.ep.m4a" },
+  { "name": "Tom Pillibi", "artist": "Jacqueline Boyer", "year": 1960, "image": "https://upload.wikimedia.org/wikipedia/en/d/d0/Jacqueline_Boyer_-_Tom_Pilibi.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ce/14/05/ce1405ae-e70a-956b-b5fb-8e511e2ab00b/mzaf_8041646280111609568.plus.aac.ep.m4a" },
+  { "name": "Een beetje", "artist": "Teddy Scholten", "year": 1959, "image": "https://upload.wikimedia.org/wikipedia/en/5/5b/Teddy_Scholten_-_Een_beetje.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b4/7e/71/b47e71f3-900a-ac02-c858-094525a38ceb/mzaf_15602010966030889674.plus.aac.ep.m4a" },
+  { "name": "Dors, mon amour", "artist": "André Claveau", "year": 1958, "image": "https://media.hitparade.ch/cover/800/andre_claveau-dors_mon_amour_s.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ef/f8/98/eff89867-a7b0-70c4-05bc-b611b27e52a0/mzaf_6987564730995032524.plus.aac.ep.m4a" },
+  { "name": "Net als toen", "artist": "Corry Brokken", "year": 1957, "image": "https://i.scdn.co/image/ab67616d0000b27359b63a1c95e60b656736ee92", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/aa/2f/46/aa2f46ee-bb91-48a8-eaad-205db373ec49/mzaf_1212237312242009249.plus.aac.ep.m4a" },
+  { "name": "Refrain", "artist": "Lys Assia", "year": 1956, "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvjMH-J6hkOgfqqNKEsFBJCbc3wrlx_vzd6pdUdGbcRJbOxpXoqYo3zqIzZdemT1BhLkXxJYWQQTQ-ZA5XgZ0kMguTGrKq_MHtFyimts7fUTwwARfg-lPwtqtMYH2ugszIMJTr/s1600/scannen0001.jpg", "audio": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e4/3b/96/e43b9634-b519-8cfb-adea-401e079a035e/mzaf_1171133031111170120.plus.aac.ep.m4a" }
+];
+
 const step = ref('intro')
+const rankMode = ref<'germany' | 'winners'>('germany') // THE NEW SWITCH
 const minYear = ref(1956)
 const maxYear = ref(2025)
 const activePool = ref<Contestant[]>([])
@@ -104,7 +180,6 @@ watch(minYear, (val) => {
 })
 
 const battleOptions = computed(() => {
-  // Safe access with optional chaining to prevent 'possibly undefined'
   const first = queue.value?.[0]?.[0]
   const second = queue.value?.[1]?.[0]
   if (first && second) return [first, second]
@@ -121,8 +196,13 @@ const progress = computed(() => {
 const startRanking = () => {
   const start = Math.min(minYear.value, maxYear.value)
   const end = Math.max(minYear.value, maxYear.value)
-  activePool.value = ALL_CONTESTANTS.filter(c => c.year >= start && c.year <= end)
-  if (activePool.value.length < 2) return alert("Wähle einen größeren Zeitraum!")
+  
+  // Decide which list to use based on the switch
+  const sourceList = rankMode.value === 'germany' ? GERMAN_CONTESTANTS : WINNER_CONTESTANTS;
+  
+  activePool.value = sourceList.filter(c => c.year >= start && c.year <= end)
+  if (activePool.value.length < 2) return alert("Wähle einen größeren Zeitraum oder Modus mit mehr Songs!")
+  
   activePool.value.sort(() => Math.random() - 0.5)
   queue.value = activePool.value.map(c => [c])
   step.value = 'battle'
@@ -188,8 +268,18 @@ const undo = () => {
 <template>
   <div class="esc-container">
     <div v-if="step === 'intro'" class="setup-card">
-      <h1>Germany ESC Ranker</h1>
-      <p>Wähle deine Ära und finde deinen Favoriten.</p>
+      <h1>ESC Ranker</h1>
+
+      <div class="mode-switch">
+        <button 
+          :class="{ active: rankMode === 'germany' }" 
+          @click="rankMode = 'germany'"
+        >Deutsche Kandidaten</button>
+        <button 
+          :class="{ active: rankMode === 'winners' }" 
+          @click="rankMode = 'winners'"
+        >Gewinner</button>
+      </div>
       
       <div class="range-controls">
         <div class="year-display">{{ Math.min(minYear, maxYear) }} — {{ Math.max(minYear, maxYear) }}</div>
@@ -204,16 +294,9 @@ const undo = () => {
 
     <div v-if="step === 'battle'" class="battle-view">
       <div class="progress-bar"><div class="fill" :style="{ width: progress + '%' }"></div></div>
-
       <div class="battle-grid">
         <div v-for="(song, idx) in battleOptions" :key="song?.name ?? idx" class="song-card" @click="selectOption(idx)">
-          <div 
-            class="image-wrapper" 
-            :class="{ 
-              selected: currentSelection === idx,
-              'not-selected': currentSelection !== null && currentSelection !== idx 
-            }"
-          >
+          <div class="image-wrapper" :class="{ selected: currentSelection === idx, 'not-selected': currentSelection !== null && currentSelection !== idx }">
             <img :src="song?.image ?? ''" :alt="song?.name ?? ''" />
             <div class="play-overlay">
               <span class="icon" :class="{ 'pause-active': isAudioPlaying && currentSelection === idx }">
@@ -227,7 +310,6 @@ const undo = () => {
           </div>
         </div>
       </div>
-
       <div class="actions">
         <button class="btn-secondary" :disabled="history.length === 0" @click="undo">Undo</button>
         <button class="btn-primary" :disabled="currentSelection === null" @click="confirmChoice">Auswählen</button>
@@ -253,41 +335,49 @@ const undo = () => {
 </template>
 
 <style scoped>
+/* INSERTING NEW SWITCH STYLES */
+.mode-switch {
+  display: flex;
+  background: #111;
+  padding: 4px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  border: 1px solid #333;
+}
+.mode-switch button {
+  flex: 1;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background: none;
+  color: #888;
+  font-family: var(--font-header);
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.mode-switch button.active {
+  background: var(--brand-green);
+  color: #000;
+}
+
+/* KEEPING ALL YOUR ORIGINAL STYLES BELOW */
 .esc-container {
-  /* 1. Layout & Sizing */
-  max-width: 1200px; /* Or your preferred max-width */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  
-  /* 2. The Centering Magic */
-  min-height: 100vh; /* Fills the whole screen */
-  margin-top: -80px; /* Pulls it up to ignore the header spacer */
-  
+  min-height: 100vh;
+  margin-top: -80px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centers vertically */
-  align-items: center;     /* Centers horizontally */
-  
-  /* 3. Optical Adjustment */
-  /* If the "Intro" card still feels a bit low, 
-     add a tiny bit of bottom padding to nudge it up */
+  justify-content: center;
+  align-items: center;
   padding-bottom: 5vh; 
 }
-
-/* Ensure the spacer doesn't push the "middle" down */
-:deep(.header-spacer) {
-  display: none;
-}
-
-/* Fix for the setup-card to ensure it doesn't 
-   stretch weirdly inside the new flex container */
-.setup-card {
-  width: 100%;
-  max-width: 600px;
-}
+:deep(.header-spacer) { display: none; }
+.setup-card { width: 100%; max-width: 600px; background: #1a1a1a; padding: 3rem 2rem; border-radius: 32px; border: 1px solid #333; text-align: center; }
 h1 { font-family: var(--font-header); color: var(--brand-green); text-transform: uppercase; text-align: center; margin-bottom: 1.5rem; font-weight: 900; }
-
-/* SLIDER */
 .range-controls { margin: 2rem 0; width: 100%; display: flex; flex-direction: column; align-items: center; }
 .year-display { font-family: var(--font-header); font-size: 2.2rem; color: #fff; margin-bottom: 1.5rem; }
 .sliders-container { position: relative; width: 100%; max-width: 500px; height: 40px; display: flex; align-items: center; }
@@ -295,77 +385,25 @@ h1 { font-family: var(--font-header); color: var(--brand-green); text-transform:
 .range-input { position: absolute; width: 100%; pointer-events: none; appearance: none; -webkit-appearance: none; background: none; outline: none; margin: 0; }
 .range-input::-webkit-slider-thumb { pointer-events: auto; appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--brand-green); cursor: pointer; border: 3px solid #fff; box-shadow: 0 0 10px rgba(0,0,0,0.5); position: relative; z-index: 2; }
 .range-input::-moz-range-thumb { pointer-events: auto; width: 28px; height: 28px; border-radius: 50%; background: var(--brand-green); cursor: pointer; border: 3px solid #fff; z-index: 2; }
-
-/* BATTLE GRID */
-.battle-grid { 
-  display: grid; 
-  grid-template-columns: minmax(150px, 360px) 80px minmax(150px, 360px);
-  justify-content: center; 
-  align-items: flex-start; 
-  margin-top: 1rem; 
-  gap: 1rem; 
-}
+.battle-grid { display: grid; grid-template-columns: minmax(150px, 360px) 80px minmax(150px, 360px); justify-content: center; align-items: flex-start; margin-top: 1rem; gap: 1rem; }
 .battle-grid::after { content: 'VS'; grid-column: 2; grid-row: 1; align-self: center; font-family: var(--font-header); font-weight: 900; font-size: 2.5rem; color: #222; text-align: center; }
-
 .song-card { background: transparent; cursor: pointer; text-align: center; width: 100%; }
-
-/* IMAGE WRAPPER FILTERS */
-.image-wrapper { 
-  width: 100%; 
-  aspect-ratio: 1; 
-  position: relative; 
-  border-radius: 24px; 
-  overflow: hidden; 
-  border: 4px solid transparent; 
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
-  background: #000; 
-}
-
-.image-wrapper img { 
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
-  opacity: 0.9;
-  filter: saturate(0.4) brightness(0.6); /* Default state: Dark and desaturated */
-  transition: filter 0.4s ease, opacity 0.4s ease;
-}
-
-/* Hover or Selected: Full color and brightness */
-.song-card:hover .image-wrapper img,
-.image-wrapper.selected img { 
-  filter: saturate(1) brightness(1); 
-  opacity: 1;
-}
-
-.image-wrapper.selected { 
-  border-color: var(--brand-green); 
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); 
-}
-
-/* Not selected (when the OTHER one is selected): Extra dark/grey */
-.image-wrapper.not-selected img {
-  filter: saturate(0.5) brightness(0.8);
-  opacity: 0.5;
-}
-
+.image-wrapper { width: 100%; aspect-ratio: 1; position: relative; border-radius: 24px; overflow: hidden; border: 4px solid transparent; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); background: #000; }
+.image-wrapper img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; filter: saturate(0.4) brightness(0.6); transition: filter 0.4s ease, opacity 0.4s ease; }
+.song-card:hover .image-wrapper img, .image-wrapper.selected img { filter: saturate(1) brightness(1); opacity: 1; }
+.image-wrapper.selected { border-color: var(--brand-green); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); }
+.image-wrapper.not-selected img { filter: saturate(0.5) brightness(0.8); opacity: 0.5; }
 .play-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.2); opacity: 0; transition: 0.2s; z-index: 2;}
 .song-card:hover .play-overlay { opacity: 1; }
 .icon { font-size: 5rem; color: #fff; filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); }
 .pause-active { font-weight: bold; letter-spacing: -2px; }
-
 .song-info { padding: 1rem 0; min-height: 80px; transition: opacity 0.4s ease;}
-.image-wrapper.not-selected + .song-info { opacity: 0.5; } /* Fade text for the unselected one too */
-
+.image-wrapper.not-selected + .song-info { opacity: 0.5; }
 .song-info h3 { font-family: var(--font-header); font-size: 1.2rem; color: #fff; margin-bottom: 0.2rem; }
 .song-info p { color: var(--brand-green); font-size: 0.9rem; margin: 0;}
-
 .actions { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem; }
-
-/* PROGRESS */
 .progress-bar { width: 100%; height: 6px; background: #222; border-radius: 10px; margin-bottom: 2rem; overflow: hidden;}
 .progress-bar .fill { height: 100%; background: var(--brand-green); transition: width 0.4s ease;}
-
-/* RESULTS */
 .results-simple-list { background: #161616; border-radius: 16px; padding: 1rem; border: 1px solid #222; margin-bottom: 2rem; }
 .simple-item { display: flex; align-items: center; padding: 0.8rem 1rem; border-bottom: 1px solid #222; gap: 1rem; }
 .simple-item:last-child { border: none; }
@@ -373,8 +411,6 @@ h1 { font-family: var(--font-header); color: var(--brand-green); text-transform:
 .song-details { display: flex; flex-direction: column; }
 .song-details .name { font-weight: 700; color: #fff; font-size: 1rem; }
 .song-details .meta { font-size: 0.85rem; color: #888; }
-
-.setup-card { background: #1a1a1a; padding: 3rem 2rem; border-radius: 32px; border: 1px solid #333; text-align: center; }
 
 @media (max-width: 768px) {
   .esc-container { padding-top: 20px; }
@@ -385,6 +421,5 @@ h1 { font-family: var(--font-header); color: var(--brand-green); text-transform:
   .song-info p { font-size: 0.75rem; }
   .icon { font-size: 2.5rem; }
   .actions { flex-direction: row; gap: 0.8rem; }
-  .btn-primary, .btn-secondary { padding: 0.6rem 1rem; font-size: 0.9rem; }
 }
 </style>

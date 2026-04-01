@@ -134,7 +134,7 @@ onMounted(() => {
       <div class="gb-form-col">
         <div class="form-panel">
           <h2>Eintrag verfassen</h2>
-          <p class="form-desc">Hinterlasse etwas für die Nachwelt.</p>
+          <p class="form-desc">Hinterlasse etwas für die Nachwelt</p>
 
           <form @submit.prevent="handleSubmit" class="gb-form">
             <input 
@@ -146,12 +146,12 @@ onMounted(() => {
               class="bot-trap" 
             />
 
-            <input v-model="name" placeholder="Dein Name / Alias" required maxlength="50" />
+            <input v-model="name" placeholder="Dein Name" required maxlength="50" />
             
             <div class="textarea-wrapper">
               <textarea 
                 v-model="message" 
-                placeholder="Was gibt's Neues?" 
+                placeholder="Was gibt's?" 
                 rows="6" 
                 required 
                 :maxlength="charLimit"

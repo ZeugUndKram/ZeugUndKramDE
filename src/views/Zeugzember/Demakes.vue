@@ -4,6 +4,8 @@ import { ref } from 'vue'
 // Independent slider positions for each project
 const balatroPos = ref(50)
 const marioPos = ref(50)
+const gdPos = ref(50)
+const trPos = ref(50)
 </script>
 
 <template>
@@ -35,7 +37,7 @@ const marioPos = ref(50)
         <input type="range" min="0" max="100" v-model="balatroPos" class="comparison-slider" />
         
         <div class="slider-line" :style="{ left: balatroPos + '%' }">
-          <div class="slider-button"><span>〈 〉</span></div>
+          <div class="slider-button"><span>〈 〉</span></div>
         </div>
 
         <div class="overlay-info">
@@ -65,7 +67,7 @@ const marioPos = ref(50)
         <input type="range" min="0" max="100" v-model="marioPos" class="comparison-slider" />
         
         <div class="slider-line" :style="{ left: marioPos + '%' }">
-          <div class="slider-button"><span>〈 〉</span></div>
+          <div class="slider-button"><span>〈 〉</span></div>
         </div>
 
         <div class="overlay-info">
@@ -75,12 +77,71 @@ const marioPos = ref(50)
         </div>
       </div>
     </section>
+
+    <section class="snap-section comparison-page">
+      <div class="comparison-container">
+        <div class="video-wrapper modern">
+          <video autoplay muted loop playsinline class="full-video">
+            <source src="/demakevids/GeometryDashPC.mp4" type="video/mp4" />
+          </video>
+          <div class="label label-right">Original (PC)</div>
+        </div>
+
+        <div class="video-wrapper demake" :style="{ width: gdPos + '%' }">
+          <video autoplay muted loop playsinline class="full-video">
+            <source src="/demakevids/GeometryDashGBA.mp4" type="video/mp4" />
+          </video>
+          <div class="label label-left">Demake (GBA)</div>
+        </div>
+
+        <input type="range" min="0" max="100" v-model="gdPos" class="comparison-slider" />
+        
+        <div class="slider-line" :style="{ left: gdPos + '%' }">
+          <div class="slider-button"><span>〈 〉</span></div>
+        </div>
+
+        <div class="overlay-info">
+          <span class="category-tag">Geometry Dash</span>
+          <h2>GBA Version</h2>
+          <p>Rhythm-Action auf 32-Bit Hardware.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="snap-section comparison-page">
+      <div class="comparison-container">
+        <div class="video-wrapper modern">
+          <video autoplay muted loop playsinline class="full-video">
+            <source src="/demakevids/TombRaiderPS1.mp4" type="video/mp4" />
+          </video>
+          <div class="label label-right">Original (PS1)</div>
+        </div>
+
+        <div class="video-wrapper demake" :style="{ width: trPos + '%' }">
+          <video autoplay muted loop playsinline class="full-video">
+            <source src="/demakevids/TombRaiderGBA.mp4" type="video/mp4" />
+          </video>
+          <div class="label label-left">Demake (GBA)</div>
+        </div>
+
+        <input type="range" min="0" max="100" v-model="trPos" class="comparison-slider" />
+        
+        <div class="slider-line" :style="{ left: trPos + '%' }">
+          <div class="slider-button"><span>〈 〉</span></div>
+        </div>
+
+        <div class="overlay-info">
+          <span class="category-tag">Tomb Raider</span>
+          <h2>OpenLara GBA</h2>
+          <p>XProger's unglaubliche Engine, die echtes 3D auf den GBA bringt.</p>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <style scoped>
 .snap-container {
-  /* This matches your footer/header logic: starts AFTER the header */
   height: calc(100vh - 80px);
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
@@ -89,7 +150,6 @@ const marioPos = ref(50)
 }
 
 .snap-section {
-  /* Each section is exactly the height of the remaining screen */
   height: calc(100vh - 80px);
   width: 100%;
   scroll-snap-align: start;
@@ -154,7 +214,6 @@ const marioPos = ref(50)
   object-fit: contain;
 }
 
-/* Slider Controls */
 .comparison-slider {
   position: absolute;
   top: 0;
@@ -200,7 +259,6 @@ const marioPos = ref(50)
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
 
-/* UI Overlays */
 .overlay-info {
   position: absolute;
   bottom: 2rem;
@@ -226,7 +284,7 @@ const marioPos = ref(50)
 
 .label {
   position: absolute;
-  top: 2rem; /* Now relative to the container start, not the screen top */
+  top: 2rem;
   padding: 0.4rem 0.8rem;
   background: rgba(0,0,0,0.6);
   color: #fff;
@@ -247,7 +305,6 @@ const marioPos = ref(50)
   font-size: 0.8rem;
 }
 
-/* Ensure header spacer is visible again to respect the 80px gap */
 :deep(.header-spacer) {
   display: block !important;
 }
