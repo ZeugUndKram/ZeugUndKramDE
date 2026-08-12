@@ -1,35 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;700;900&family=Varela+Round&display=swap');
 @import './base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-}
-
-a,
-.green {
+/* --- Buttons ---
+   .btn-primary und .btn-secondary bringen die Basis selbst mit, damit sie auch
+   ohne zusaetzliches .btn funktionieren (so nutzen sie die Zeugzember-Seiten). */
+.btn,
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-family: var(--font-header);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+.btn-primary {
+  background-color: var(--brand-green);
+  color: var(--bg);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #9ccb9e;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--brand-green);
+  color: var(--brand-green);
+}
+
+/* Ausgegraut statt unsichtbar: der Undo-Knopf im ESC-Ranker startet deaktiviert. */
+.btn:disabled,
+.btn-primary:disabled,
+.btn-secondary:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* --- Seiten, die den fixen Header ueberlagern und mittig sitzen --- */
+.page-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  margin-top: calc(var(--header-height) * -1);
+  padding: calc(var(--header-height) + 2rem) 2rem 4rem;
+}
+
+@media (max-width: 600px) {
+  .page-centered {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+/* --- Karten-Grundform, geteilt von Zeugzember-Kacheln und Social-Links --- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+a.card:hover {
+  background: var(--surface-hover);
+  border-color: var(--brand-green);
 }
