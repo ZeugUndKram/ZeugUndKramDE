@@ -1,29 +1,32 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
+const NAV = [
+  { to: '/', label: 'Home' },
+  { to: '/zeugzember', label: 'Zeugzember' },
+  { to: '/socials', label: 'Socials' },
+]
+
+const route = useRoute()
 const isMenuOpen = ref(false)
-
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value
-}
 
 const closeMenu = () => {
   isMenuOpen.value = false
 }
 
-const handleResize = () => {
-  if (window.innerWidth > 850 && isMenuOpen.value) {
-    closeMenu()
-  }
-}
+// Beim Seitenwechsel schliesst sich das Mobil-Menue von selbst.
+watch(() => route.fullPath, closeMenu)
 
-watch(isMenuOpen, (newValue) => {
-  if (newValue) {
-    document.body.style.overflow = 'hidden'
-  } else {
-    document.body.style.overflow = ''
-  }
+watch(isMenuOpen, (open) => {
+  document.body.style.overflow = open ? 'hidden' : ''
 })
+
+// Wer bei offenem Menue aufs Querformat dreht, saehe sonst ein schwarzes Overlay
+// ohne Schliessen-Knopf, weil der Burger ab 850px verschwindet.
+const handleResize = () => {
+  if (window.innerWidth > 850) closeMenu()
+}
 
 onMounted(() => {
   window.addEventListener('resize', handleResize)
@@ -38,44 +41,36 @@ onUnmounted(() => {
 <template>
   <header class="header">
     <div class="header-container">
-      <div class="logo-area">
-      <div class="logo-area">
-        <router-link to="/">
-          <img src="/images/ZeugUndKramFlach.png" alt="Logo" class="nav-logo" />
-        </router-link>
-      </div>      
-    </div>
+      <router-link to="/" class="logo-link">
+        <img src="/images/ZeugUndKramFlach.png" alt="Zeug & Kram" class="nav-logo" />
+      </router-link>
 
       <nav class="desktop-nav">
-        <a href="/">Home</a>
-        <a href="#leistungen">Creations</a>
-        <a href="/zeugzember">Zeugzember</a>
-        <a href="/socials">Socials</a>
-        <a href="/guestbook">Gästebuch</a>
+        <router-link v-for="item in NAV" :key="item.to" :to="item.to">
+          {{ item.label }}
+        </router-link>
       </nav>
 
-      <button 
-        class="burger-btn" 
-        @click="toggleMenu" 
+      <button
+        class="burger-btn"
         :class="{ 'is-active': isMenuOpen }"
-        aria-label="Menu"
+        :aria-expanded="isMenuOpen"
+        aria-label="Menü"
+        @click="isMenuOpen = !isMenuOpen"
       >
-        <div class="burger-box">
+        <span class="burger-box">
           <span class="line"></span>
           <span class="line"></span>
           <span class="line"></span>
-        </div>
+        </span>
       </button>
     </div>
 
     <transition name="fade">
       <nav v-if="isMenuOpen" class="mobile-nav">
-        <div class="mobile-nav-links">
-          <a href="/" @click="closeMenu">Home</a>
-          <a href="#leistungen" @click="closeMenu">Creations</a>
-          <a href="/zeugzember" @click="closeMenu">Zeugzember</a>
-          <a href="/socials" @click="closeMenu">Socials</a>
-        </div>
+        <router-link v-for="item in NAV" :key="item.to" :to="item.to" @click="closeMenu">
+          {{ item.label }}
+        </router-link>
       </nav>
     </transition>
   </header>
@@ -87,24 +82,28 @@ onUnmounted(() => {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 3000;
   width: 100%;
+  padding: 1.2rem 0;
   background-color: rgba(18, 18, 18, 0.98);
   backdrop-filter: blur(15px);
-  padding: 1.2rem 0;
-  z-index: 3000;
 }
 
 .header-spacer {
-  height: 80px;
+  height: var(--header-height);
 }
 
 .header-container {
-  max-width: 1400px;
-  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  max-width: var(--content-width);
+  margin: 0 auto;
   padding: 0 2rem;
+}
+
+.logo-link {
+  display: flex;
 }
 
 .nav-logo {
@@ -112,118 +111,108 @@ onUnmounted(() => {
   width: auto;
 }
 
-.nav-logo:hover {
-  transform: scale(1.1);
-}
-
-
 .desktop-nav {
   display: flex;
   gap: 2.5rem;
 }
 
 .desktop-nav a {
-  /* Using Exo for the "Tech" vibe in nav */
-  font-family: 'Exo', sans-serif;
-  text-decoration: none;
-  color: #ffffff; /* Default to white as requested */
-  font-weight: 700;
+  font-family: var(--font-header);
   font-size: 0.85rem;
-  transition: color 0.3s ease;
-  text-transform: uppercase;
+  font-weight: 700;
   letter-spacing: 1px;
-  /* Explicitly removing any background/box effects */
-  background: none !important;
-  padding: 0;
-  border: none;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+  transition: color 0.2s ease;
 }
 
-.desktop-nav a:hover {
-  color: #89BD8B; /* Text turns green */
-  transform: scale(1.1);
-  background: transparent !important; /* Forces the box to disappear */
+.desktop-nav a:hover,
+.desktop-nav a.router-link-exact-active {
+  color: var(--brand-green);
 }
 
-/* --- BURGER BUTTON --- */
+/* --- Burger --- */
 .burger-btn {
   display: none;
-  background: none !important;
-  border: none;
-  cursor: pointer;
   padding: 10px;
   margin: -10px;
+  border: none;
+  background: none;
+  cursor: pointer;
   z-index: 4000;
-  transform: none !important; 
-  filter: none !important;
-  transition: transform 0.4s ease !important;
-}
-
-.burger-btn:hover {
-  transform: scale(1.1) !important;
 }
 
 .burger-box {
-  width: 28px;
-  height: 20px;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
+  width: 28px;
+  height: 20px;
 }
 
 .line {
   width: 100%;
   height: 2px;
-  background-color: #89BD8B;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  background-color: var(--brand-green);
   transform-origin: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.burger-btn.is-active .line:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-.burger-btn.is-active .line:nth-child(2) { opacity: 0; }
-.burger-btn.is-active .line:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+.burger-btn.is-active .line:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.burger-btn.is-active .line:nth-child(2) {
+  opacity: 0;
+}
+.burger-btn.is-active .line:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
 
-/* --- MOBILE NAV --- */
+/* --- Mobil --- */
 .mobile-nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #000;
+  inset: 0;
   z-index: 3500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.mobile-nav-links {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2.5rem;
+  background-color: var(--bg-deep);
 }
 
-.mobile-nav-links a {
-  font-family: 'Exo', sans-serif;
+.mobile-nav a {
+  font-family: var(--font-header);
   font-size: 2rem;
-  color: white;
-  text-decoration: none;
   font-weight: 800;
   text-transform: uppercase;
-  transition: color 0.2s;
-  background: none !important;
+  text-decoration: none;
+  color: var(--text);
+  transition: color 0.2s ease;
 }
 
-.mobile-nav-links a:hover {
-  color: #89BD8B;
+.mobile-nav a:hover,
+.mobile-nav a.router-link-exact-active {
+  color: var(--brand-green);
 }
 
 @media (max-width: 850px) {
-  .desktop-nav { display: none; }
-  .burger-btn { display: block; }
+  .desktop-nav {
+    display: none;
+  }
+  .burger-btn {
+    display: block;
+  }
 }
 
-.fade-enter-active, .fade-leave-active { transition: opacity 0.3s; }
-.fade-enter-from, .fade-leave-to { opacity: 0; }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

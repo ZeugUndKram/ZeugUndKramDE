@@ -1,42 +1,40 @@
-# zeugundkramde
+# zeugundkram.de
 
-This template should help get you started developing with Vue 3 in Vite.
+Persönliche Spielwiese: eine Vue-3-SPA, die unter [www.zeugundkram.de](https://www.zeugundkram.de) liegt.
+Herzstück ist der **Zeugzember** — zwölf Türen, hinter denen jeweils ein kleines
+interaktives Projekt steckt (ESC-Beiträge, Jamba-Klingelton-Ranking,
+Internet-Zeitmaschine, GBA-Demakes).
 
-## Recommended IDE Setup
+## Stack
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Vue 3 (Composition API) + TypeScript
+- Vite 7, Vue Router 4 (History-Mode)
+- Kein Backend, kein Tracking — reines Static Hosting
 
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## Entwicklung
 
 ```sh
 npm install
+npm run dev          # Dev-Server
+npm run type-check   # vue-tsc
+npm run build        # Produktions-Build nach dist/
 ```
 
-### Compile and Hot-Reload for Development
+## Struktur
 
-```sh
-npm run dev
-```
+| Pfad                  | Inhalt                                                            |
+| --------------------- | ----------------------------------------------------------------- |
+| `src/assets/base.css` | Design-Tokens (Farben, Fonts, Abstände) — hier zentral anpassen    |
+| `src/assets/main.css` | Globale Klassen: `.btn`, `.card`, `.page-centered`                 |
+| `src/data/`           | Inhalte als Daten: Social-Links, Zeugzember-Türen                  |
+| `src/components/`     | Geteilte Bausteine (`PageIntro`, `ProsePage`, `DoorTile`, …)       |
+| `src/views/`          | Seiten, `views/Zeugzember/` die einzelnen Türen                    |
 
-### Type-Check, Compile and Minify for Production
+Neue Tür: Komponente unter `src/views/Zeugzember/` anlegen, Route in
+`src/router/index.ts` eintragen, Eintrag in `src/data/zeugzember.ts` um `to` ergänzen.
 
-```sh
-npm run build
-```
+## Deployment
+
+Push auf `main` baut über GitHub Actions und deployed nach GitHub Pages
+(`.github/workflows/deploy.yml`). `dist/index.html` wird dabei als `404.html`
+dupliziert, damit die History-Routen direkt aufrufbar sind.
