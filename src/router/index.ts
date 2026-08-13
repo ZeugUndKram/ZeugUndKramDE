@@ -37,11 +37,27 @@ const routes = [
     component: () => import('../views/Zeugzember/Demakes.vue')
   },
   {
+<<<<<<< Updated upstream
     // Alias ohne Umlaut, damit die Adresse auch tippbar und teilbar bleibt.
     path: '/leberkäsesushi',
     alias: '/leberkaesesushi',
     name: 'leberkaesesushi',
     component: () => import('../views/Zeugzember/LeberkaeseSushi.vue')
+=======
+    path: '/zeugzember/Punch',
+    name: 'punch',
+    component: () => import('../views/Zeugzember/Punch-Out.vue')
+  },
+  {
+    path: '/zeugzember/nonogram',
+    name: 'nonogram',
+    component: () => import('../views/Zeugzember/Nonogram.vue')
+  },
+  {
+    path: '/guestbook',
+    name: 'guestbook',
+    component: () => import('../views/Guestbook.vue')
+>>>>>>> Stashed changes
   },
   {
     path: '/privacy',
