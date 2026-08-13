@@ -421,6 +421,5 @@ h1 { font-family: var(--font-header); color: var(--brand-green); text-transform:
   .song-info p { font-size: 0.75rem; }
   .icon { font-size: 2.5rem; }
   .actions { flex-direction: row; gap: 0.8rem; }
-  .btn-primary, .btn-secondary { padding: 0.6rem 1rem; font-size: 0.9rem; }
 }
 </style>

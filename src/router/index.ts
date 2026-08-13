@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from '../views/Home.vue'// Or wherever your main landing content is moved to
 
 const routes = [
   {
@@ -17,47 +18,29 @@ const routes = [
     component: () => import('../views/Zeugzember.vue')
   },
   {
-    path: '/zeugzember/esc',
+    path: '/zeugzember/ESC',
     name: 'esc',
     component: () => import('../views/Zeugzember/ESC.vue')
   },
   {
-    path: '/zeugzember/jamba',
+    path: '/zeugzember/Jamba',
     name: 'jamba',
     component: () => import('../views/Zeugzember/Jamba.vue')
   },
   {
-    path: '/zeugzember/oldweb',
+    path: '/zeugzember/OldWeb',
     name: 'oldweb',
     component: () => import('../views/Zeugzember/OldWeb.vue')
   },
   {
-    path: '/zeugzember/demakes',
+    path: '/zeugzember/Demakes',
     name: 'demakes',
     component: () => import('../views/Zeugzember/Demakes.vue')
-  },
-  {
-<<<<<<< Updated upstream
-    // Alias ohne Umlaut, damit die Adresse auch tippbar und teilbar bleibt.
-    path: '/leberkäsesushi',
-    alias: '/leberkaesesushi',
-    name: 'leberkaesesushi',
-    component: () => import('../views/Zeugzember/LeberkaeseSushi.vue')
-=======
-    path: '/zeugzember/Punch',
-    name: 'punch',
-    component: () => import('../views/Zeugzember/Punch-Out.vue')
-  },
-  {
-    path: '/zeugzember/nonogram',
-    name: 'nonogram',
-    component: () => import('../views/Zeugzember/Nonogram.vue')
   },
   {
     path: '/guestbook',
     name: 'guestbook',
     component: () => import('../views/Guestbook.vue')
->>>>>>> Stashed changes
   },
   {
     path: '/privacy',
@@ -67,19 +50,15 @@ const routes = [
   {
     path: '/legal',
     name: 'legal',
+    // Lazy load the legal page
     component: () => import('../views/Legal.vue')
-  },
-  {
-    // Faengt geloeschte URLs (z. B. das alte /guestbook) und Tippfehler ab.
-    path: '/:pathMatch(.*)*',
-    name: 'not-found',
-    component: () => import('../views/NotFound.vue')
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
+  // Ensure the page scrolls to top when navigating
   scrollBehavior() {
     return { top: 0 }
   }

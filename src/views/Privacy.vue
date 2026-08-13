@@ -1,9 +1,7 @@
-<script setup lang="ts">
-import ProsePage from '../components/ProsePage.vue'
-</script>
-
 <template>
-  <ProsePage title="Datenschutzerklärung">
+  <div class="legal-container">
+    <h1>Datenschutzerklärung</h1>
+
     <section>
       <h2>1. Datenschutz auf einen Blick</h2>
       <h3>Allgemeine Hinweise</h3>
@@ -33,7 +31,7 @@ import ProsePage from '../components/ProsePage.vue'
       <p>Wir hosten die Inhalte unserer Website bei folgendem Anbieter:</p>
       <h3>IONOS</h3>
       <p>
-        Anbieter ist die IONOS SE, Elgendorfer Str. 57, 56410 Montabaur. Wenn Sie unsere Website besuchen, erfasst IONOS verschiedene Logfiles inklusive Ihrer IP-Adressen. Details entnehmen Sie der Datenschutzerklärung von IONOS:
+        Anbieter ist die IONOS SE, Elgendorfer Str. 57, 56410 Montabaur. Wenn Sie unsere Website besuchen, erfasst IONOS verschiedene Logfiles inklusive Ihrer IP-Adressen. Details entnehmen Sie der Datenschutzerklärung von IONOS: 
         <a href="https://www.ionos.de/terms-gtc/terms-privacy" target="_blank" rel="noopener noreferrer">https://www.ionos.de/terms-gtc/terms-privacy</a>.
       </p>
     </section>
@@ -61,5 +59,83 @@ import ProsePage from '../components/ProsePage.vue'
         Wenn Sie uns per E-Mail oder Telefon kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet.
       </p>
     </section>
-  </ProsePage>
+
+    <p class="source">Quelle: <a href="https://www.e-recht24.de" target="_blank">e-recht24.de</a></p>
+  </div>
 </template>
+
+<style scoped>
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 2rem 8rem; /* Space for the header */
+  line-height: 1.8;
+  color: #ccc;
+  font-family: var(--font-body, 'Varela Round', sans-serif);
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+h1 {
+  font-family: var(--font-header, 'Exo', sans-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--brand-green, #89BD8B);
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+h2 {
+  font-family: var(--font-header, 'Exo', sans-serif);
+  font-size: 1.5rem;
+  color: #fff;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+h3, h4 {
+  font-family: var(--font-header, 'Exo', sans-serif);
+  color: #eee;
+  margin-top: 2rem;
+}
+
+p {
+  margin-bottom: 1.2rem;
+}
+
+.address-block {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--brand-green);
+  color: #fff;
+}
+
+a {
+  color: var(--brand-green);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.source {
+  font-size: 0.8rem;
+  margin-top: 5rem;
+  opacity: 0.5;
+}
+
+ul {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+</style>
