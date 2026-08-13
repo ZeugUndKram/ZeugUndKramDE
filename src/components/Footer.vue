@@ -290,8 +290,6 @@ li a:hover {
 >>>>>>> Stashed changes
   }
 
-  .socials {
-    justify-content: center;
   .footer-link:hover {
     padding-left: 0 !important;
   }
